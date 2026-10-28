@@ -22,3 +22,4 @@ old one's status.
 | [0011](0011-lessons-with-flavor-folders.md) | One folder per lesson, with a subfolder per flavor | Accepted |
 | [0012](0012-license-real.md) | License the course under REAL 1.0 | Accepted |
 | [0013](0013-book-and-ci.md) | Publish the lessons as a book, and test both flavors in CI | Accepted |
+| [0014](0014-recommend-arm-tools.md) | Recommend arm-tools (optional), and ship its `armtool.toml` files | Accepted |

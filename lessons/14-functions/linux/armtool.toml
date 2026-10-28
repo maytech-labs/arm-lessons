@@ -1,0 +1,14 @@
+# Settings for armls and armtool (https://github.com/maytech-labs/arm-tools).
+# The nearest armtool.toml wins, so this repeats the repo root's [format].
+
+[target]
+platform = "linux"
+
+[rules]
+# ELF bookkeeping the course does not use (.note.GNU-stack, .type, .size).
+"elf/gnu-stack" = "off"
+"elf/function-symbol" = "off"
+
+[format]
+mnemonic_width = 0              # `mov x0, #42`, as the lessons write it
+comment_column = 32

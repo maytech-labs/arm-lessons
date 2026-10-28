@@ -28,6 +28,7 @@ lessons/NN-slug/
   exercises.md       homework, shared by every flavor
   answers.md         answers to the written (non-code) exercises
   linux/
+    armtool.toml     tells arm-tools this folder is Linux (decision 0014)
     examples/        every program the README uses, plus a Makefile
     solutions/       one solution per programming exercise, plus a Makefile
   apple-silicon/

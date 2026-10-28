@@ -8,6 +8,7 @@
 | Link | `ld`, usually driven by `gcc`/`clang` | `.o` files, libraries | executable |
 | Inspect | `objdump -d`, `nm`, `readelf`/`otool` | object or executable | disassembly, symbol tables, headers |
 | Debug | `gdb` (Linux), `lldb` (macOS) | executable | step through instructions, read registers and memory |
+| Check and lint | `armls` (editor), `armtool` (terminal), from [arm-tools](https://github.com/maytech-labs/arm-tools) | `prog.s` text | errors and ABI mistakes, before you build |
 
 We almost always let `gcc` or `clang` run the assembler and linker for us,
 because they know where the C library and startup files are.
@@ -40,6 +41,24 @@ $ lldb ./prog
 Each `examples/` and `solutions/` directory has a two-line Makefile that
 includes `mk/linux.mk` or `mk/apple.mk`. `make` builds every `.s` file into an
 executable of the same name; `make clean` removes them.
+
+## arm-tools (recommended)
+
+Optional, and installed on the Mac (setup is in
+[lesson 00](../lessons/00-setup/README.md#recommended-arm-tools)):
+
+```console
+$ armtool check lessons/07-arithmetic/linux/work   # errors, as the assembler reports them
+$ armtool lint lessons/07-arithmetic/linux/work    # plus ABI and control-flow mistakes
+$ armtool explain abi/callee-saved                 # what a rule means
+```
+
+The tools read the nearest `armtool.toml` above each file, and the nearest
+one wins outright, with no merging. The root `armtool.toml` covers the
+`apple-silicon/` folders (Darwin is armtool's default). Each
+`lessons/NN-*/linux/` folder has its own `armtool.toml` that selects Linux,
+turns off the ELF bookkeeping rules the course doesn't use, and repeats the
+root's `[format]`. Add one when you add a lesson with a `linux/` folder.
 
 ## Online
 

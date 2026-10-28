@@ -1,0 +1,7 @@
+# Settings for armls and armtool (https://github.com/maytech-labs/arm-tools).
+# This file covers the apple-silicon/ folders. Each lessons/NN-*/linux/ folder
+# has its own armtool.toml, because the nearest file wins and they are not merged.
+
+[format]
+mnemonic_width = 0              # `mov x0, #42`, as the lessons write it
+comment_column = 32

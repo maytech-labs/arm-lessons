@@ -52,6 +52,12 @@ You need:
   flavor. Apple Silicon runs the arm64 Linux container natively, with no
   emulation.
 - **On ARM64 Linux:** `gcc`, `binutils`, `make`, and `gdb`.
+- **Recommended:** [arm-tools](https://github.com/maytech-labs/arm-tools), a
+  language server and linter made alongside this course. Your editor shows
+  errors as you type and explains each instruction on hover, and
+  `armtool lint` catches mistakes like broken calling conventions before you
+  run anything. The repo includes `armtool.toml` files for both flavors.
+  Setup is in [lesson 00](lessons/00-setup/README.md#recommended-arm-tools).
 
 ```console
 $ git clone https://github.com/maytech-labs/arm-lessons.git && cd arm-lessons

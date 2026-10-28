@@ -296,6 +296,50 @@ Use any plain-text editor. Some tips:
 - Save before you run `make`. "I changed it but nothing happened" is almost
   always an unsaved file.
 
+### Recommended: arm-tools
+
+[arm-tools](https://github.com/maytech-labs/arm-tools) are tools made
+alongside this course, and they make it a lot easier. Installing them is
+optional, but recommended. There are two programs:
+
+- **`armls`** runs inside your editor. It underlines mistakes as you type,
+  using the same error messages the assembler would give. Hover over an
+  instruction to see what it does, or over a register to see its job.
+- **`armtool`** runs in Terminal. `armtool check` finds errors without
+  building anything. `armtool lint` also finds mistakes that assemble fine
+  but break at run time, like a function that forgets to save a register.
+
+Install them on the Mac:
+
+```console
+$ brew tap maytech-labs/tap
+$ brew trust maytech-labs/tap
+$ brew install arm-tools
+```
+
+(Or download `armls` and `armtool` from the
+[releases page](https://github.com/maytech-labs/arm-tools/releases) and put
+them on your `PATH`.) Then connect `armls` to your editor:
+[arm-tools/editors](https://github.com/maytech-labs/arm-tools/tree/main/editors)
+has setups for VS Code, Neovim, and Helix.
+
+Run `armtool` on the Mac, even for the Linux flavor. The repo comes with
+`armtool.toml` files that tell the tools which folders hold Linux code and
+which hold macOS code:
+
+```console
+$ armtool check lessons/00-setup/linux/examples
+armtool: 1 file checked, no errors or warnings
+$ armtool lint lessons/00-setup/linux/work
+```
+
+Most warnings will make sense only once a later lesson explains them. Until
+then, `armtool explain <rule>` describes any rule a warning names. A few
+example programs make mistakes on purpose (lessons 13 to 15 each break a rule
+and then show what goes wrong), and the linter flags those too. arm-tools is
+pre-release, so if it flags code you are sure is correct, trust the lesson
+and run the program.
+
 ## Looking inside a program
 
 A program is just a file of bytes. Three tools let you look at those bytes in
@@ -431,6 +475,8 @@ lesson.
 - Do homework in `linux/work/` (or `apple-silicon/work/`) with a copy of the
   Makefile. Try before reading the solutions.
 - After each lesson, read its `apple-silicon/README.md`.
+- Optional but recommended: install arm-tools so your editor catches mistakes
+  as you type, and run `armtool lint` on your homework.
 
 ## Homework
 
