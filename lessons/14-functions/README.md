@@ -145,6 +145,20 @@ loop forever.
 
 It should have been 1.
 
+The linter from lesson 00 spots this bug without running the program. In a
+Mac terminal, from this lesson's folder:
+
+```console
+$ armtool lint linux/examples/lost_return.s
+linux/examples/lost_return.s:24:5: warning[abi/link-register]: this call overwrites x30, and 'outer' never saves it, so it can't return to its caller. Save it first: stp x29, x30, [sp, #-16]!
+linux/examples/lost_return.s:25:5: warning[abi/callee-saved]: 'outer' changes x19 without saving it, but callers expect x19 to survive the call. Save it in the prologue and restore it before ret
+```
+
+The first warning is the bug above, and its suggested fix is the one this
+lesson uses next. The second is about which registers a function may change
+freely. Lesson 15 explains that rule; this program breaks it on purpose, to
+keep the counter simple.
+
 ## The fix: save `x30` on the stack
 
 A function that calls other functions must save `x30` before its first `bl`

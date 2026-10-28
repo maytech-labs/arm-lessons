@@ -10,6 +10,11 @@ Copy the example `Makefile` rules you need (an explicit rule per program that
 has more than one source file). Try every exercise before you look at
 `solutions/`. Written answers are in [answers.md](answers.md).
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 26.1 [warm-up]
 
 For each call, write down which register or stack slot holds each argument on

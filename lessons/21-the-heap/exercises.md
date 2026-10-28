@@ -15,6 +15,11 @@ returns. Check that last part with
 `gcc -g -fsanitize=address exN.s -o exN_asan && ./exN_asan`: it should print
 nothing extra.
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 21.1 [warm-up]
 
 Written. How many bytes do you pass to `malloc` (or what arguments to `calloc`) for:

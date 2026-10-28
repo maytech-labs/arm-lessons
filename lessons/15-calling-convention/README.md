@@ -130,6 +130,17 @@ In a real program the symptom shows up far from the cause: a loop in some
 caller misbehaves, and the function that broke it looks perfectly fine. When a
 caller's `x19`-`x28` changes "by itself" across a call, suspect the callee.
 
+This is the kind of bug a linter is best at, because the linter reads the
+callee, not the symptom. In a Mac terminal, from this lesson's folder:
+
+```console
+$ armtool lint linux/examples/clobber_bug.s
+linux/examples/clobber_bug.s:28:5: warning[abi/callee-saved]: 'bad_helper' changes x19 without saving it, but callers expect x19 to survive the call. Save it in the prologue and restore it before ret
+```
+
+If you installed arm-tools, make a habit of running `armtool lint` on your
+homework before you debug it.
+
 ### Choosing registers: a rule of thumb
 
 - A value that is **not** needed after the next call: use `x9`-`x15`. No

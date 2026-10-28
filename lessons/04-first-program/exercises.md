@@ -10,6 +10,11 @@ Work in `lessons/04-first-program/linux/work/` (on macOS: `apple-silicon/work/`)
 looking at the answers: programs are in [linux/solutions/](linux/solutions/), written
 answers in [answers.md](answers.md).
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 04.1 [warm-up]
 
 Write `ex1.s` from an empty file, without looking at the lesson, that exits

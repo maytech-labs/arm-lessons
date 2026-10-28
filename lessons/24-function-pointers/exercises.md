@@ -7,6 +7,11 @@ before you look at `solutions/`: written answers are in
 
 All programs define `main`, link libc, and print with `printf` or `puts`.
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 24.1 [warm-up]
 
 Answer on paper.

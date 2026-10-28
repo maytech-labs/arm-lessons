@@ -16,6 +16,11 @@ Try every exercise yourself before looking. Programming solutions are in
 [linux/solutions/](linux/solutions/) as `exK.s`; written answers are in
 [answers.md](answers.md).
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 22.1 [warm-up]
 
 A program starts with `head = NULL` and calls `head = push_front(head, 5)`, then

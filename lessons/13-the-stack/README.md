@@ -95,6 +95,18 @@ Bus error (core dumped)
 refused. This crash is very common in hand-written assembly. When you see
 `Bus error`, check every `sub sp` and `add sp`.
 
+If you installed arm-tools (lesson 00), the linter finds this before you
+run anything. In a Mac terminal, from this lesson's folder:
+
+```console
+$ armtool lint linux/examples/misaligned.s
+linux/examples/misaligned.s:13:5: warning[abi/stack-alignment]: this moves sp by 8 bytes, which isn't a multiple of 16, so sp loses its required 16-byte alignment. Use 16
+linux/examples/misaligned.s:16:5: warning[abi/stack-alignment]: this moves sp by 8 bytes, which isn't a multiple of 16, so sp loses its required 16-byte alignment. Use 16
+```
+
+With `armls` in your editor, the same warning appears under the line as
+you type it.
+
 ## Reserving space: `sub sp` and `add sp`
 
 `examples/locals.s` keeps four `long` locals on the stack:

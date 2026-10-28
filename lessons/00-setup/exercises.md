@@ -11,6 +11,11 @@ Do these exercises in the Linux container. The companion lesson,
 [apple-silicon/](apple-silicon/), says how to do
 the same ones on macOS.
 
+If you installed arm-tools ([lesson 00](README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 00.1 [warm-up]
 
 Get the environment working. Write down the output of each of these:

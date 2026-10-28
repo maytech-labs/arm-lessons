@@ -18,6 +18,11 @@ For programs that use LSE instructions, put `.arch armv8.1-a` at the top.
 
 ---
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 28.1 [warm-up]
 
 Written.

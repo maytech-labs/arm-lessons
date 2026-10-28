@@ -15,6 +15,11 @@ Try each exercise properly before you look at the solution. Solutions are in
 [linux/solutions/](linux/solutions/); written answers are in
 [answers.md](answers.md).
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 27.1 [warm-up]
 
 Copy `examples/funcs.c` into `work/` and run:

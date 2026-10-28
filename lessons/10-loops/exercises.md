@@ -10,6 +10,11 @@ If a program never ends, press `Ctrl-c` and debug it. Try each exercise
 before looking at the answers: programs are in [linux/solutions/](linux/solutions/),
 written answers in [answers.md](answers.md).
 
+If you installed arm-tools ([lesson 00](../00-setup/README.md#recommended-arm-tools)), lint your work before
+you check the answers. In a Mac terminal, from this lesson's folder, run
+`armtool lint linux/work` (or `apple-silicon/work`). It catches many
+mistakes before you run anything.
+
 ## Exercise 10.1 [warm-up]
 
 Trace this loop by hand. Write down `x0` and `x1` at the label `loop` every
