@@ -84,7 +84,7 @@ pointer in `x0` and returns one pointer in `x0`. When it returns, the thread
 ends. To give a thread several values, put them in a struct and pass the
 struct's address. A `pthread_t` is 8 bytes on both platforms.
 
-Read [examples/threads.s](examples/threads.s). Three things to notice:
+Read [linux/examples/threads.s](linux/examples/threads.s). Three things to notice:
 
 - `sum_range` is an ordinary function. It follows the calling convention
   exactly like any other: it is a leaf, so it needs no frame. The thread
@@ -121,7 +121,7 @@ code.) The shared `mk/linux.mk` rule does not add it, so this lesson's
 Makefile replaces that rule with one that does:
 
 ```make
-include ../../../mk/linux.mk
+include ../../../../mk/linux.mk
 
 %: %.s
 	$(CC) $(ASFLAGS) -pthread -o $@ $<
@@ -146,7 +146,7 @@ void *worker(void *arg) {
 ```
 
 Four threads, a million each: you expect 4000000. In assembly `counter++` is
-three instructions (look at [examples/race.s](examples/race.s)):
+three instructions (look at [linux/examples/race.s](linux/examples/race.s)):
 
 ```asm
     ldr     x3, [x1]                // read counter
@@ -216,7 +216,7 @@ int main(void) {
 ```
 
 The code between lock and unlock is called the **critical section**. Read
-[examples/mutex.s](examples/mutex.s). The worker now calls functions in its
+[linux/examples/mutex.s](linux/examples/mutex.s). The worker now calls functions in its
 loop, so it needs a frame, and it keeps the mutex address and the loop count
 in `x19` and `x20`, which survive calls (lesson 15). Everything in `x0`-`x17`
 may be destroyed by `pthread_mutex_lock`.
@@ -258,7 +258,7 @@ do {
 } while (!store_if_untouched(&counter, new));   // stxr + cbnz
 ```
 
-From [examples/ldxr.s](examples/ldxr.s):
+From [linux/examples/ldxr.s](linux/examples/ldxr.s):
 
 ```asm
 retry:
@@ -335,7 +335,7 @@ Put this directive at the top of the file:
 ```
 
 (The command-line alternative is `gcc -march=armv8.1-a`.) Read
-[examples/lse.s](examples/lse.s). The worker's loop body is now one
+[linux/examples/lse.s](linux/examples/lse.s). The worker's loop body is now one
 instruction:
 
 ```asm
@@ -396,7 +396,7 @@ Release and acquire come in pairs. The producer *releases* (publishes) with
 `stlr`; the consumer *acquires* with `ldar`; if the acquire sees the value the
 release wrote, then everything the producer did before the release is visible
 to the consumer after the acquire. Read
-[examples/msgpass.s](examples/msgpass.s):
+[linux/examples/msgpass.s](linux/examples/msgpass.s):
 
 ```asm
 // producer
@@ -448,7 +448,7 @@ void spin_lock(int *lock)   { while (!compare_and_set(lock, 0, 1)) ; }  // acqui
 void spin_unlock(int *lock) { *lock = 0; }                              // release
 ```
 
-From [examples/spinlock.s](examples/spinlock.s):
+From [linux/examples/spinlock.s](linux/examples/spinlock.s):
 
 ```asm
 spin_lock:
@@ -486,7 +486,7 @@ beyond this course.)
 ## 8. C11 atomics and what they become
 
 C11's `<stdatomic.h>` gives you these instructions from C. Read
-[examples/c11.c](examples/c11.c). It wraps four operations in small
+[linux/examples/c11.c](linux/examples/c11.c). It wraps four operations in small
 functions so you can find them in the disassembly:
 
 ```c

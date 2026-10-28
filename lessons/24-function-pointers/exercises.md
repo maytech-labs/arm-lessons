@@ -1,9 +1,9 @@
 # Lesson 24 exercises: Function pointers
 
-Work in `lessons/24-function-pointers/work/` (it is git-ignored). Copy the
+Work in `lessons/24-function-pointers/linux/work/` (on macOS: `apple-silicon/work/`) (it is git-ignored). Copy the
 Makefile from `examples/` into it so `make` works there. Try every exercise
 before you look at `solutions/`: written answers are in
-[solutions/README.md](solutions/README.md), programs are `solutions/exN.s`.
+[answers.md](answers.md), programs are `solutions/exN.s`.
 
 All programs define `main`, link libc, and print with `printf` or `puts`.
 

@@ -1,11 +1,11 @@
 # Lesson 06 exercises
 
-Work in `lessons/06-debugger/work/` inside the container, using the programs
+Work in `lessons/06-debugger/linux/work/` (on macOS: `apple-silicon/work/`) inside the container, using the programs
 in `examples/` (build them with `make -C ../examples`).
 
 Try each exercise before looking at the answers: programs are in
-[solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 06.1 [warm-up]
 

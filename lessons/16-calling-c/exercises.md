@@ -1,6 +1,6 @@
 # Lesson 16 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p work && cd work
@@ -12,8 +12,8 @@ to your Makefile like the `sum3` rule in the lesson, or build by hand with
 `gcc -g -o exN exN_main.c exN.s`.
 
 Try every exercise before you look at the solutions. Programs are in
-[`solutions/`](solutions/); answers to the written questions are in
-[`solutions/README.md`](solutions/README.md).
+[`linux/solutions/`](linux/solutions/); answers to the written questions are in
+[`answers.md`](answers.md).
 
 ## Exercise 16.1 [warm-up]
 

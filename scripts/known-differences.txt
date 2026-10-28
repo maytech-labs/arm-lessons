@@ -1,0 +1,17 @@
+# Programs whose output legitimately differs between Linux and macOS.
+# scripts/diff-runs.sh ignores these when comparing run-all.sh results.
+# Format: LESSON/examples|solutions/PROGRAM   reason
+
+13-the-stack/examples/misaligned                SIGBUS is signal 7 on Linux, 10 on macOS
+16-calling-c/examples/printf_wrong              macOS only: shows the variadic-arguments bug
+18-integer-types/examples/char_sign             plain char: unsigned on Linux, signed on macOS
+20-symbols-and-sections/examples/const_write    SIGSEGV on Linux, SIGBUS on macOS
+21-the-heap/examples/addresses                  prints addresses
+21-the-heap/examples/double_free                glibc aborts (134); macOS traps (133)
+24-function-pointers/examples/fnptr_basics      prints an address
+25-io-and-args/examples/envp                    prints the environment
+27-compiler-output/examples/bench               prints timings
+27-compiler-output/solutions/ex8                prints timings
+28-threads-and-atomics/examples/race            a data race: the count varies by design
+29-inline-assembly/examples/counter             timer frequency differs by OS
+29-inline-assembly/solutions/ex4                prints timings

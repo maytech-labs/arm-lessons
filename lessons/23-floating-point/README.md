@@ -562,7 +562,7 @@ The shared Makefile rule does not add `-lm`, so `examples/Makefile` adds an
 explicit rule for this one program:
 
 ```make
-include ../../../mk/linux.mk
+include ../../../../mk/linux.mk
 
 # sqrt, pow and floor live in the math library: link it with -lm.
 math_lib: math_lib.s

@@ -1,6 +1,6 @@
 # Lesson 25 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p lessons/25-io-and-args/work && cd lessons/25-io-and-args/work
@@ -8,10 +8,10 @@ $ cp ../examples/Makefile ../examples/sample.txt .
 ```
 
 The copied Makefile builds every `.s` file in the directory. Try each exercise
-before you look at the solutions: programs are in [solutions/](solutions/),
-written answers in [solutions/README.md](solutions/README.md). On macOS, write
+before you look at the solutions: programs are in [linux/solutions/](linux/solutions/),
+written answers in [answers.md](answers.md). On macOS, write
 the same programs for your Mac; the macOS solutions are in
-[../../apple-silicon/25-io-and-args/solutions/](../../apple-silicon/25-io-and-args/solutions/).
+[apple-silicon/solutions/](apple-silicon/solutions/).
 
 ## Exercise 25.1 [warm-up]
 

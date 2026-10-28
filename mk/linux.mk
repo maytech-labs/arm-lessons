@@ -1,7 +1,7 @@
 # Shared build rules for the Linux AArch64 track.
 #
 # Usage, from a lesson's examples/ or solutions/ directory:
-#     include ../../../mk/linux.mk
+#     include ../../../../mk/linux.mk
 #
 # Every foo.s in the directory becomes an executable named foo, except files
 # listed (without .s) in PARTS before the include: those are pieces of a

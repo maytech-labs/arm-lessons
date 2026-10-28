@@ -1,6 +1,6 @@
 # Lesson 22 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p lessons/22-linked-structures/work
@@ -13,8 +13,8 @@ Copy the helper functions you need (`push_front`, `print_list`, `free_list`,
 program must be a single self-contained `.s` file.
 
 Try every exercise yourself before looking. Programming solutions are in
-[solutions/](solutions/) as `exK.s`; written answers are in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/) as `exK.s`; written answers are in
+[answers.md](answers.md).
 
 ## Exercise 22.1 [warm-up]
 

@@ -38,7 +38,7 @@ You need lessons 03 to 10. In particular:
 - `udiv` and `msub` for remainders (lesson 07).
 - `cmp`, `b.cond`, `cbz`/`cbnz`, loops (lessons 09 and 10).
 
-All the programs are in [examples/](examples/). Build them all with `make` in
+All the programs are in [linux/examples/](linux/examples/). Build them all with `make` in
 that directory.
 
 ## 1. Loading and storing: `ldr` and `str`
@@ -77,7 +77,7 @@ Note the direction: `ldr` copies right to left (memory into register), but `str`
 copies left to right (register into memory). The register is always written
 first, the memory address second.
 
-Open [examples/counter.s](examples/counter.s):
+Open [linux/examples/counter.s](linux/examples/counter.s):
 
 ```asm
     .data
@@ -133,7 +133,7 @@ the rest of the register with zeros. This is called **zero-extension**. Because
 writing any `w` register also zeroes the upper half of the `x` register (lesson
 03), after `ldrb w1, [x0]` the whole 64-bit `x1` holds a number from 0 to 255.
 
-[examples/sizes.s](examples/sizes.s) loads the same address four ways:
+[linux/examples/sizes.s](linux/examples/sizes.s) loads the same address four ways:
 
 ```asm
 value:
@@ -184,7 +184,7 @@ leaves the neighbours alone:
 There is no `strsb`: storing just copies low bytes, so signed and unsigned are
 the same thing.
 
-[examples/stores.s](examples/stores.s) fills an 8-byte variable and then
+[linux/examples/stores.s](linux/examples/stores.s) fills an 8-byte variable and then
 overwrites parts of it. The comments show the eight bytes after each store,
 lowest address first:
 
@@ -251,7 +251,7 @@ says "this is an `int`". It is your job to use the load that matches the
 directive: `ldr x` for `.quad`, `ldr w` for `.word`, `ldrh` for `.hword`, `ldrb`
 for `.byte`. In C the compiler remembers the type for you; in assembly, you do.
 
-[examples/directives.s](examples/directives.s) loads each one with the right
+[linux/examples/directives.s](linux/examples/directives.s) loads each one with the right
 instruction and adds them up.
 
 ```console
@@ -291,7 +291,7 @@ The rule for C: **if the type is signed, use a signed load; if it is unsigned,
 use the plain load.** Then the 64-bit register holds the correct value and
 `cmp` / `b.lt` / `sdiv` work as you expect.
 
-[examples/signext.s](examples/signext.s):
+[linux/examples/signext.s](linux/examples/signext.s):
 
 ```asm
 small:
@@ -329,7 +329,7 @@ address:   n     n+1   n+2   n+3
 byte:      44    33    22    11
 ```
 
-You met this in lesson 02. Now prove it. [examples/endian.s](examples/endian.s)
+You met this in lesson 02. Now prove it. [linux/examples/endian.s](linux/examples/endian.s)
 loads the single byte at the lowest address:
 
 ```asm
@@ -398,7 +398,7 @@ The shift must be either 0 or the log2 of the access size: `lsl #3` for 8-byte
 loads, `lsl #2` for 4-byte, `lsl #1` for 2-byte, and none (or `lsl #0`) for
 bytes. Lesson 12 uses this a lot.
 
-[examples/modes.s](examples/modes.s) reads all five elements of an array, each
+[linux/examples/modes.s](linux/examples/modes.s) reads all five elements of an array, each
 with a different mode:
 
 ```asm
@@ -448,7 +448,7 @@ for (int n = 8; n != 0; n--)
     sum += *p++;
 ```
 
-[examples/bytesum.s](examples/bytesum.s):
+[linux/examples/bytesum.s](linux/examples/bytesum.s):
 
 ```asm
     adrp x1, data
@@ -484,7 +484,7 @@ With `w` registers they move two 4-byte values (`x0` and `x0 + 4`). They accept
 base, offset, pre-index and post-index modes. The offset must be a multiple of
 the register size, between -512 and 504 for `x` registers.
 
-[examples/pairs.s](examples/pairs.s) copies a 16-byte record from `src` to `dst`
+[linux/examples/pairs.s](linux/examples/pairs.s) copies a 16-byte record from `src` to `dst`
 and reads it back:
 
 ```c
@@ -529,7 +529,7 @@ You can only reserve space in `.bss`; you cannot put real values there (no
 `.quad 5`). That is what `.data` is for. `.space` also works in `.data`, where
 it does put real zero bytes into the file.
 
-[examples/bss.s](examples/bss.s) fills `buf` with the alphabet using
+[linux/examples/bss.s](linux/examples/bss.s) fills `buf` with the alphabet using
 `strb w3, [x2], #1` (that is `*p++ = c`), adds a newline, and writes it:
 
 ```console
@@ -571,7 +571,7 @@ the next address that is a multiple of 2^k.
 | `.p2align 3` | 8 | `.quad` |
 | `.p2align 4` | 16 | anything you want 16-byte aligned |
 
-[examples/align.s](examples/align.s) puts two bytes and then an aligned
+[linux/examples/align.s](linux/examples/align.s) puts two bytes and then an aligned
 `.quad`. `nm -n` lists symbols sorted by address:
 
 ```console
@@ -613,7 +613,7 @@ Three things surprise people:
 3. If the input is longer than `x2`, you only get the first `x2` bytes. The rest
    waits for your next `read`.
 
-[examples/echo.s](examples/echo.s) reads into a 64-byte buffer in `.bss` and
+[linux/examples/echo.s](linux/examples/echo.s) reads into a 64-byte buffer in `.bss` and
 writes back exactly as many bytes as it got:
 
 ```asm
@@ -692,7 +692,7 @@ exactly a **pre-index** store with a negative offset: `strb w6, [x1, #-1]!`.
 It is a `do ... while` rather than a `while` so that the number 0 still prints
 one digit, `0`.
 
-[examples/printnum.s](examples/printnum.s):
+[linux/examples/printnum.s](linux/examples/printnum.s):
 
 ```asm
     // ---- print x19 in decimal, followed by a newline ----
@@ -759,7 +759,7 @@ If `c` was smaller than `'0'` (a newline is 10, a space is 32), the subtraction
 wraps around to a huge unsigned number, which is also "greater than 9". So
 `b.hi` (unsigned higher) catches both cases at once.
 
-[examples/double.s](examples/double.s) reads a number, doubles it, and prints
+[linux/examples/double.s](linux/examples/double.s) reads a number, doubles it, and prints
 it:
 
 ```asm

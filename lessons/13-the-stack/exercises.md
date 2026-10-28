@@ -1,14 +1,14 @@
 # Lesson 13 exercises
 
-Work in `lessons/13-the-stack/work/` inside the container:
+Work in `lessons/13-the-stack/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
 ```
 
 Try each exercise before looking at the answers: programs are in
-[solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 13.1 [warm-up]
 

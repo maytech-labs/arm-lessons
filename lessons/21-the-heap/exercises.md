@@ -1,13 +1,13 @@
 # Lesson 21 exercises: The heap
 
-Work in `lessons/21-the-heap/work/` (it is git-ignored). Copy the Makefile from
+Work in `lessons/21-the-heap/linux/work/` (on macOS: `apple-silicon/work/`) (it is git-ignored). Copy the Makefile from
 `examples/` into it so `make ex3` builds `ex3.s`. Run everything inside the Linux
 container (`./scripts/linux-shell.sh`).
 
 Try each exercise properly before you look at the answer. Programming solutions
-are in [solutions/](solutions/) (`exN.s` for Exercise 21.N); written answers are in
-[solutions/README.md](solutions/README.md). macOS versions of every solution are in
-[../../apple-silicon/21-the-heap/solutions/](../../apple-silicon/21-the-heap/solutions/).
+are in [linux/solutions/](linux/solutions/) (`exN.s` for Exercise 21.N); written answers are in
+[answers.md](answers.md). macOS versions of every solution are in
+[apple-silicon/solutions/](apple-silicon/solutions/).
 
 Every program must check each `malloc`/`calloc`/`realloc` result for `NULL`,
 return exit status 1 if one fails, and free everything it allocated before it

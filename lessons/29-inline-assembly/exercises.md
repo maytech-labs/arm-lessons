@@ -1,6 +1,6 @@
 # Lesson 29 exercises
 
-Work in `lessons/29-inline-assembly/work/` inside the container:
+Work in `lessons/29-inline-assembly/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/29-inline-assembly/work/` inside the container:
 
 The Makefile builds every `.c` file with `-O2`. After each exercise, look at
 what the compiler did with your asm: `gcc -O2 -S -o - exN.c`. Try each exercise
-before looking at the answers: programs are in [solutions/](solutions/),
-written answers in [solutions/README.md](solutions/README.md).
+before looking at the answers: programs are in [linux/solutions/](linux/solutions/),
+written answers in [answers.md](answers.md).
 
 ## Exercise 29.1 [warm-up]
 

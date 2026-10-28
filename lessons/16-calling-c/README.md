@@ -38,7 +38,7 @@ int main(void) {
 }
 ```
 
-In assembly, [`examples/ret42.s`](examples/ret42.s):
+In assembly, [`linux/examples/ret42.s`](linux/examples/ret42.s):
 
 ```asm
     .text
@@ -116,7 +116,7 @@ int main(void) {
 ```
 
 `puts(s)` writes the string `s` and then a newline. It takes one argument, a
-pointer, so the pointer goes in `x0`. [`examples/hello.s`](examples/hello.s):
+pointer, so the pointer goes in `x0`. [`linux/examples/hello.s`](linux/examples/hello.s):
 
 ```asm
     .section .rodata
@@ -172,7 +172,7 @@ On Linux, `printf` is called exactly like any other function: the format string
 is the first argument (`x0`), the next ones go in `x1`, `x2`, `x3`, and so on.
 Use a `w` register for an `int` (`%d`) and an `x` register for a `long`
 (`%ld`) or a pointer (`%s`, `%p`).
-[`examples/printf_args.s`](examples/printf_args.s):
+[`linux/examples/printf_args.s`](linux/examples/printf_args.s):
 
 ```asm
     adrp    x0, fmt_sum             // 1st argument: the format string
@@ -228,7 +228,7 @@ Not `x0`-`x17`: every call may destroy those. They must go in callee-saved
 registers, `x19`-`x28`, which every function (including libc's) promises to
 give back unchanged. And because *our* `main` is also a function, we must save
 the old values of `x19` and `x20` before using them, and restore them at the end.
-[`examples/libc_tour.s`](examples/libc_tour.s):
+[`linux/examples/libc_tour.s`](linux/examples/libc_tour.s):
 
 ```asm
 main:
@@ -295,7 +295,7 @@ long sum3(long a, long b, long c) {
 }
 ```
 
-In assembly, [`examples/sum3.s`](examples/sum3.s):
+In assembly, [`linux/examples/sum3.s`](linux/examples/sum3.s):
 
 ```asm
     .text
@@ -307,7 +307,7 @@ sum3:                       // a leaf function: no calls, so no frame needed
     ret
 ```
 
-And the C program that calls it, [`examples/sum3_main.c`](examples/sum3_main.c):
+And the C program that calls it, [`linux/examples/sum3_main.c`](linux/examples/sum3_main.c):
 
 ```c
 #include <stdio.h>
@@ -352,11 +352,11 @@ sum3(100, -50, 7) = 57
 ```
 
 The shared Makefile turns *each* `.s` file into its own program, which would
-fail here: `sum3.s` has no `main`. So [`examples/Makefile`](examples/Makefile)
+fail here: `sum3.s` has no `main`. So [`linux/examples/Makefile`](linux/examples/Makefile)
 adds its own rules below the `include` line:
 
 ```make
-include ../../../mk/linux.mk
+include ../../../../mk/linux.mk
 
 sum3: sum3_main.c sum3.s
 	$(CC) $(ASFLAGS) -o $@ sum3_main.c sum3.s
@@ -379,7 +379,7 @@ void greet(const char *name, int times) {
 }
 ```
 
-[`examples/greet.s`](examples/greet.s) needs three values that survive the
+[`linux/examples/greet.s`](linux/examples/greet.s) needs three values that survive the
 `printf` calls (`name`, `times`, `i`), so it saves three callee-saved
 registers. `x21` needs its own 8-byte slot; the frame is 48 bytes so that it
 stays a multiple of 16:
@@ -411,7 +411,7 @@ greet_done:
     ret
 ```
 
-[`examples/greet_main.c`](examples/greet_main.c) declares
+[`linux/examples/greet_main.c`](linux/examples/greet_main.c) declares
 `void greet(const char *name, int times);` and calls it twice.
 
 ```console
@@ -429,7 +429,7 @@ teacher you have for the rest of the course: whenever you wonder how to write
 something in assembly, write it in C and ask the compiler (see
 [decision 0007](../../docs/decisions/0007-c-as-reference-language.md)).
 
-[`examples/square.c`](examples/square.c):
+[`linux/examples/square.c`](linux/examples/square.c):
 
 ```c
 int square(int x) {

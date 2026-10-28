@@ -21,10 +21,10 @@ You need:
 - [Lesson 19](../19-structs-and-unions/): struct layout and `.equ` offsets.
 - [Lesson 21](../21-the-heap/): `malloc`, `free`, checking for `NULL`, ownership.
 
-All the examples are in [examples/](examples/). Build them once now:
+All the examples are in [linux/examples/](linux/examples/). Build them once now:
 
 ```console
-$ cd lessons/22-linked-structures/examples
+$ cd lessons/22-linked-structures/linux/examples
 $ make
 ```
 
@@ -112,7 +112,7 @@ The function returns the new head and the caller stores it. This
 "`head = f(head, ...)`" style is used for every operation in this lesson that
 might change which node is first.
 
-In assembly ([examples/list_basics.s](examples/list_basics.s)):
+In assembly ([linux/examples/list_basics.s](linux/examples/list_basics.s)):
 
 ```asm
 push_front:
@@ -235,7 +235,7 @@ length: 3
 
 ## More list operations
 
-[examples/list_ops.s](examples/list_ops.s) adds four more operations. Read each
+[linux/examples/list_ops.s](linux/examples/list_ops.s) adds four more operations. Read each
 one in the file as you go through this section.
 
 ### Append
@@ -426,7 +426,7 @@ node". A **queue** is first in, first out: you add at the back and take from the
 front. To add at the back without walking the list, you keep a second pointer to
 the last node.
 
-In C ([examples/stack_queue.s](examples/stack_queue.s)):
+In C ([linux/examples/stack_queue.s](linux/examples/stack_queue.s)):
 
 ```c
 struct stack { struct node *top; };
@@ -521,7 +521,7 @@ so there is nothing left to free at the end.
 
 A list is a *recursive* structure: a list is either empty (`NULL`) or a node
 followed by a (shorter) list. So any list walk can be written recursively.
-[examples/list_recursive.s](examples/list_recursive.s) has the length both ways:
+[linux/examples/list_recursive.s](linux/examples/list_recursive.s) has the length both ways:
 
 ```c
 long length_loop(struct node *p) {        long length_rec(struct node *p) {
@@ -614,7 +614,7 @@ struct tree {
     .equ TREE_SIZE,  24
 ```
 
-The code is in [examples/bst.s](examples/bst.s).
+The code is in [linux/examples/bst.s](linux/examples/bst.s).
 
 ### Insert
 
@@ -849,4 +849,4 @@ fix it, but are beyond this lesson.)
 ## Homework
 
 [exercises.md](exercises.md). Then read the macOS companion:
-[../../apple-silicon/22-linked-structures/](../../apple-silicon/22-linked-structures/).
+[apple-silicon/](apple-silicon/).

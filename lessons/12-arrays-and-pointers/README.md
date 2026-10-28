@@ -19,7 +19,7 @@ same block (copied into each file, since we do not have functions until
 lesson 14). It prints `x19` in decimal followed by the character in `w20`.
 
 ```console
-# cd lessons/12-arrays-and-pointers/examples && make
+# cd lessons/12-arrays-and-pointers/linux/examples && make
 ```
 
 ## An array is just consecutive memory
@@ -335,5 +335,5 @@ Step through the inner loop of each in the debugger with
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/12-arrays-and-pointers/README.md)
+[Apple Silicon companion](apple-silicon/README.md)
 next.

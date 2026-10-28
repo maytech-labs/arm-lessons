@@ -1,6 +1,6 @@
 # Lesson 17 exercises
 
-Work in `lessons/17-strings/work/` inside the container:
+Work in `lessons/17-strings/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -9,8 +9,8 @@ Work in `lessons/17-strings/work/` inside the container:
 Each program has a `main` that tests your function on a few strings and prints
 the results with `printf` (lesson 16). Where libc has the same function,
 print both results side by side. Try each exercise before looking at the
-answers: programs are in [solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+answers: programs are in [linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 17.1 [warm-up]
 

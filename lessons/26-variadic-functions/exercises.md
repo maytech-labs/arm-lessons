@@ -1,6 +1,6 @@
 # Lesson 26 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p work && cd work
@@ -8,7 +8,7 @@ $ mkdir -p work && cd work
 
 Copy the example `Makefile` rules you need (an explicit rule per program that
 has more than one source file). Try every exercise before you look at
-`solutions/`. Written answers are in [solutions/README.md](solutions/README.md).
+`solutions/`. Written answers are in [answers.md](answers.md).
 
 ## Exercise 26.1 [warm-up]
 

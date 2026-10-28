@@ -19,7 +19,7 @@ You need lesson 01 (binary and hex), 02 (two's complement), and 07
 easier to follow in binary.
 
 ```console
-# cd lessons/08-bitwise/examples && make
+# cd lessons/08-bitwise/linux/examples && make
 ```
 
 ## Bitwise operations work on every bit separately
@@ -274,4 +274,4 @@ All of these also work on `w` registers, with 32 as the width:
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/08-bitwise/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

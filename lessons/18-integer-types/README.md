@@ -21,7 +21,7 @@ part of C that most often surprises people: what happens to the bits when
 types meet.
 
 ```console
-# cd lessons/18-integer-types/examples && make
+# cd lessons/18-integer-types/linux/examples && make
 ```
 
 ## Sizes: the LP64 model
@@ -318,4 +318,4 @@ Converting to `bool` is not truncation: any non-zero value becomes 1.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/18-integer-types/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

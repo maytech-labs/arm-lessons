@@ -24,11 +24,11 @@ You need:
 - [Lesson 19](../19-structs-and-unions/): struct offsets with `.equ`.
 - [Lesson 20](../20-symbols-and-sections/): `.data`, `.bss`, `.rodata`.
 
-All examples are in [examples/](examples/). Build them inside the Linux container:
+All examples are in [linux/examples/](linux/examples/). Build them inside the Linux container:
 
 ```console
 $ ./scripts/linux-shell.sh
-# cd lessons/21-the-heap/examples
+# cd lessons/21-the-heap/linux/examples
 # make
 ```
 
@@ -59,7 +59,7 @@ You ask for a block of `n` bytes with `malloc(n)`; it gives you the address of a
 block nobody else is using. When you are finished, you hand the block back with
 `free`. Between those two calls the block is yours, whatever function you are in.
 
-Let's look at where the three regions are. [addresses.s](examples/addresses.s)
+Let's look at where the three regions are. [addresses.s](linux/examples/addresses.s)
 prints the address of a global, of a block from `malloc`, and of a local on the stack.
 
 ```c
@@ -159,7 +159,7 @@ machine. Check every time.
 
 ### Example: an array on the heap
 
-[malloc_array.s](examples/malloc_array.s) is this C program:
+[malloc_array.s](linux/examples/malloc_array.s) is this C program:
 
 ```c
 long *a = malloc(5 * sizeof(long));
@@ -234,7 +234,7 @@ overwrite `x19` after you have checked the result.
     mov  x19, x0                    // only now replace p
 ```
 
-[calloc_realloc.s](examples/calloc_realloc.s) uses all of this: `calloc` four
+[calloc_realloc.s](linux/examples/calloc_realloc.s) uses all of this: `calloc` four
 longs, print them, fill them, `realloc` to eight, print the first four (they were
 copied), fill the rest, print all eight.
 
@@ -288,7 +288,7 @@ Growing by one would copy 1 + 2 + 3 + ... + n elements: about n²/2. Doubling
 copies 4 + 8 + 16 + ... + n elements: less than 2n in total. Pushing a million
 elements costs about twenty `realloc` calls instead of a million.
 
-The assembly version is [vector.s](examples/vector.s). The struct offsets are
+The assembly version is [vector.s](linux/examples/vector.s). The struct offsets are
 `.equ`s, as in lesson 19:
 
 ```asm
@@ -397,7 +397,7 @@ Pairs like `person_new`/`person_free` (a constructor and a destructor) are how
 C programs keep ownership manageable. You will use the same shape for list nodes
 and tree nodes in lesson 22.
 
-[person.s](examples/person.s) is the assembly version. The constructor keeps
+[person.s](linux/examples/person.s) is the assembly version. The constructor keeps
 `name`, `age`, the new block, and the length in `x19`-`x22`, because each of them
 is needed after a call. `memcpy(dst, src, n)` takes its arguments in `x0`, `x1`,
 `x2`, and the destination is already in `x0` because `malloc` just returned it:
@@ -446,7 +446,7 @@ find.
 
 ### A double free
 
-[double_free.s](examples/double_free.s) frees the same block twice. The modern
+[double_free.s](linux/examples/double_free.s) frees the same block twice. The modern
 glibc allocator keeps a small cache of freed blocks (the "tcache") and notices
 that the block is already in it.
 
@@ -473,7 +473,7 @@ program died.
 
 ### A leak, and a tool that finds it
 
-[leak.s](examples/leak.s) mallocs three blocks in a loop but keeps only the last
+[leak.s](linux/examples/leak.s) mallocs three blocks in a loop but keeps only the last
 pointer:
 
 ```c
@@ -503,7 +503,7 @@ allocated 3 blocks, freed 1
 
 Direct leak of 200 byte(s) in 2 object(s) allocated from:
     #0 0xf1560c97b734 in __interceptor_malloc ...
-    #1 0xc0dd85d308b4  (/work/lessons/21-the-heap/examples/leak_asan+0x8b4)
+    #1 0xc0dd85d308b4  (/work/lessons/21-the-heap/linux/examples/leak_asan+0x8b4)
     ...
 SUMMARY: AddressSanitizer: 200 byte(s) leaked in 2 allocation(s).
 $ rm leak_asan
@@ -554,7 +554,7 @@ page = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1,
   not shared with other processes.
 - `fd` = -1 and `offset` = 0: no file.
 
-[mmap_page.s](examples/mmap_page.s) maps one page, copies a string into it, prints
+[mmap_page.s](linux/examples/mmap_page.s) maps one page, copies a string into it, prints
 it, and gives the page back with `munmap` (system call 215). Like every Linux
 system call, a failure comes back as a negative number in `x0` (lesson 05), and a
 user-space address is never negative, so `tbnz x0, #63, main_fail` checks for it.
@@ -633,4 +633,4 @@ to write the simplest possible one.
 ## Homework
 
 Do the exercises in [exercises.md](exercises.md). Then read the macOS companion,
-[../../apple-silicon/21-the-heap/](../../apple-silicon/21-the-heap/).
+[apple-silicon/](apple-silicon/).

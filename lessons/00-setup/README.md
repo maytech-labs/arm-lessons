@@ -7,8 +7,8 @@ After this lesson you can:
 - Install the tools this course needs on an Apple Silicon Mac.
 - Open a Linux AArch64 shell in a Docker container, with this repo inside it.
 - Build every program in a directory with `make`, run one, and read its exit status.
-- Find your way around a lesson: `README.md`, `examples/`, `exercises.md`,
-  `solutions/`, and your own `work/` directory.
+- Find your way around a lesson: `README.md`, `exercises.md`, `answers.md`,
+  the `linux/` and `apple-silicon/` folders, and your own `work/` directory.
 - Run three tools that look inside a program: `file`, `nm`, and `objdump`.
 
 ## Before you start
@@ -22,12 +22,12 @@ Nothing. This is the first lesson. You need:
 
 ## How this course is organised
 
-There are two tracks:
+Every lesson comes in two flavors:
 
-| Track | Directory | What it is |
-|-------|-----------|------------|
-| Main | `lessons/` | The lessons. Linux on 64-bit ARM ("AArch64"). |
-| Companion | `apple-silicon/` | What is different on macOS, plus macOS versions of every program. |
+| Flavor | Folder in each lesson | What it is |
+|--------|-----------------------|------------|
+| Linux | `linux/` | The programs the lesson text uses. Linux on 64-bit ARM ("AArch64"). |
+| Apple Silicon | `apple-silicon/` | What is different on macOS, plus macOS versions of every program. |
 
 Why Linux first, when you are on a Mac? Your Mac's CPU runs exactly the same
 instructions as an ARM Linux machine. What differs is the operating system
@@ -119,20 +119,20 @@ because they live on your Mac.
 You can also jump straight into a lesson directory:
 
 ```console
-$ ./scripts/linux-shell.sh lessons/00-setup/examples
-root@...:/work/lessons/00-setup/examples#
+$ ./scripts/linux-shell.sh lessons/00-setup/linux/examples
+root@...:/work/lessons/00-setup/linux/examples#
 ```
 
-From here on, terminal sessions in the main track are shown with a plain `$`
-prompt. In `lessons/` that always means *inside the container*. In
-`apple-silicon/` it means your normal macOS Terminal.
+From here on, terminal sessions are shown with a plain `$` prompt. In a
+lesson's `linux/` folder that always means *inside the container*. In its
+`apple-silicon/` folder it means your normal macOS Terminal.
 
 ## Step 5: Build and run your first program
 
 Inside the container:
 
 ```console
-$ cd /work/lessons/00-setup/examples
+$ cd /work/lessons/00-setup/linux/examples
 $ ls
 Makefile  check.s
 ```
@@ -201,7 +201,7 @@ Every `examples/` and `solutions/` directory has a two-line `Makefile`:
 
 ```make
 # `make` builds every .s file here into a program; `make clean` removes them.
-include ../../../mk/linux.mk
+include ../../../../mk/linux.mk
 ```
 
 The real rules live in `mk/linux.mk` at the top of the repo. They say: for
@@ -229,46 +229,54 @@ Every lesson directory looks like this:
 
 ```
 lessons/NN-slug/
-  README.md        the lesson: read it top to bottom
-  examples/        every program the lesson shows, plus a Makefile
-  exercises.md     homework
-  solutions/       worked solutions, plus README.md with written answers
-  work/            YOUR directory: create it yourself
+  README.md            the lesson: read it top to bottom
+  exercises.md         homework
+  answers.md           answers to the written questions
+  linux/
+    examples/          every program the lesson shows, plus a Makefile
+    solutions/         worked solutions to the programming exercises
+    work/              YOUR directory: create it yourself
+  apple-silicon/
+    README.md          what is different on macOS for this lesson
+    examples/          the macOS versions of the examples
+    solutions/         the macOS versions of the solutions
+    work/              your macOS homework
 ```
 
 The routine for each lesson:
 
-1. Read `README.md`. Every time it shows a program, find that program in
-   `examples/`, build it, and run it yourself. When the text asks you to
-   predict something, actually stop and predict before running.
-2. Read the lesson's companion in `apple-silicon/NN-slug/` and run the macOS
-   versions natively on your Mac.
+1. Read `README.md`. Every time it shows a program, find it in
+   `linux/examples/`, build it, and run it yourself. When the text asks you
+   to predict something, actually stop and predict before running.
+2. Read `apple-silicon/README.md` and run the macOS versions natively on your
+   Mac.
 3. Do `exercises.md` in a `work/` directory.
-4. Only then compare with `solutions/`.
+4. Only then compare with `answers.md` and the `solutions/` folders.
 
 ### Your `work/` directory
 
-Do your homework in a directory called `work/` inside the lesson. Git ignores
+Do your homework in a directory called `work/` inside the flavor folder:
+`linux/work/` in the container, `apple-silicon/work/` on macOS. Git ignores
 every `work/` directory, so your experiments never get mixed up with the
 course files. Make one and give it the same Makefile as `examples/`:
 
 ```console
-$ cd /work/lessons/00-setup
+$ cd /work/lessons/00-setup/linux
 $ mkdir work
 $ cp examples/Makefile work/
 $ cd work
 ```
 
-The Makefile's `include ../../../mk/linux.mk` path still works from `work/`,
-because `work/` is at the same depth as `examples/`. Now any `.s` file you
-create in `work/` builds with `make`.
+The Makefile's `include ../../../../mk/linux.mk` path still works from
+`work/`, because `work/` is at the same depth as `examples/`. Now any `.s`
+file you create in `work/` builds with `make`.
 
 ### Solutions
 
 Try every exercise before you look. Getting stuck and then un-stuck is where
 the learning happens. When you do look, programming solutions are in
-`solutions/exN.s` and answers to written questions are in
-`solutions/README.md`.
+`linux/solutions/exN.s` (and `apple-silicon/solutions/exN.s`), and answers to
+written questions are in `answers.md`.
 
 ## Editing assembly files
 
@@ -397,7 +405,7 @@ lesson.
 - **`./check: cannot execute binary file: Exec format error`** on the Mac.
   You built it in the container (it is a Linux program) and then tried to run
   it on macOS. Linux programs run in the container; macOS programs (from
-  `apple-silicon/`) run on the Mac.
+  `apple-silicon/` folders) run on the Mac.
 - **`docker: Cannot connect to the Docker daemon`.** Docker Desktop (or
   OrbStack, or Colima) is not running. Start it and try again.
 - **`command not found` for `check`.** You typed `check` instead of `./check`.
@@ -412,7 +420,7 @@ lesson.
 
 - Your Mac's CPU is AArch64. Linux and macOS run the same instructions; what
   differs is the operating system around them.
-- The main track runs in an arm64 Linux container: `./scripts/linux-shell.sh`.
+- The Linux flavor runs in an arm64 Linux container: `./scripts/linux-shell.sh`.
   The repo is mounted at `/work`.
 - `make` builds every `foo.s` in a directory into a program `foo`; `make clean`
   removes them.
@@ -420,9 +428,9 @@ lesson.
   away.
 - `file`, `nm`, and `objdump -d` show what kind of file a program is, which
   names it contains, and its instructions.
-- Do homework in `work/` with a copy of the Makefile. Try before reading
-  `solutions/`.
-- After each lesson, read its companion in `apple-silicon/`.
+- Do homework in `linux/work/` (or `apple-silicon/work/`) with a copy of the
+  Makefile. Try before reading the solutions.
+- After each lesson, read its `apple-silicon/README.md`.
 
 ## Homework
 

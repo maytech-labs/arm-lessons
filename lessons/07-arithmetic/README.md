@@ -21,7 +21,7 @@ so they must fit in 0-255; anything bigger, check in the debugger. Printing
 numbers arrives in lesson 11.
 
 ```console
-# cd lessons/07-arithmetic/examples && make
+# cd lessons/07-arithmetic/linux/examples && make
 ```
 
 ## The shape of an arithmetic instruction
@@ -345,4 +345,4 @@ your version with its.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/07-arithmetic/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

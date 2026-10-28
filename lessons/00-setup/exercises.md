@@ -1,14 +1,14 @@
 # Lesson 00 exercises
 
-Work in `lessons/00-setup/work/` (create it, and copy `examples/Makefile` into
+Work in `lessons/00-setup/linux/work/` (on macOS: `apple-silicon/work/`) (create it, and copy `examples/Makefile` into
 it, as the lesson showed). Everything in `work/` is ignored by git.
 
 Try every exercise before you look at the answers. Written answers are in
-[solutions/README.md](solutions/README.md); programs are in
-[solutions/](solutions/).
+[answers.md](answers.md); programs are in
+[linux/solutions/](linux/solutions/).
 
 Do these exercises in the Linux container. The companion lesson,
-[../../apple-silicon/00-setup/](../../apple-silicon/00-setup/), says how to do
+[apple-silicon/](apple-silicon/), says how to do
 the same ones on macOS.
 
 ## Exercise 00.1 [warm-up]
@@ -25,7 +25,7 @@ Check: (1) mentions `arm64`, (2) says `Hello from Docker!`, (3) says
 
 ## Exercise 00.2 [warm-up]
 
-In the container, in `lessons/00-setup/examples/`:
+In the container, in `lessons/00-setup/linux/examples/`:
 
 1. Run `make`, then `./check`, then `echo $?`. Write down what each printed.
 2. Now run `./check`, then `echo $?`, then `echo $?` again. Why is the second

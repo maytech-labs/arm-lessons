@@ -1,12 +1,12 @@
 # Lesson 19 exercises
 
-Work in `lessons/19-structs-and-unions/work/` inside the container. Copy
+Work in `lessons/19-structs-and-unions/linux/work/` (on macOS: `apple-silicon/work/`) inside the container. Copy
 `examples/Makefile` and `examples/offsets.c` into it; extend `offsets.c` to
 check any layout you compute by hand.
 
 Try each exercise before looking at the answers: programs are in
-[solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 19.1 [warm-up]
 

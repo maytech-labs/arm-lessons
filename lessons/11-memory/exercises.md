@@ -1,6 +1,6 @@
 # Lesson 11 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p work && cd work
@@ -8,11 +8,11 @@ $ cp ../examples/Makefile .
 ```
 
 Then `make` builds every `.s` file you put there. Try each exercise properly
-before you look at [solutions/](solutions/). Written answers are in
-[solutions/README.md](solutions/README.md).
+before you look at [linux/solutions/](linux/solutions/). Written answers are in
+[answers.md](answers.md).
 
 Several programs need to print a number. Copy the "print x19 in decimal" block
-from [examples/printnum.s](examples/printnum.s), together with its `numbuf` in
+from [linux/examples/printnum.s](linux/examples/printnum.s), together with its `numbuf` in
 `.bss`.
 
 ## Exercise 11.1 [warm-up]

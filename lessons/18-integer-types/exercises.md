@@ -1,6 +1,6 @@
 # Lesson 18 exercises
 
-Work in `lessons/18-integer-types/work/` inside the container:
+Work in `lessons/18-integer-types/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/18-integer-types/work/` inside the container:
 
 Print results with `printf` (`%d`, `%u`, `%ld`, `%lu`, `%lx`). Try each
 exercise before looking at the answers: programs are in
-[solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 18.1 [warm-up]
 

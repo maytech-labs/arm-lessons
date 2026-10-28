@@ -1,13 +1,13 @@
 # Lesson 23 exercises: Floating point
 
-Work in `lessons/23-floating-point/work/` (it is git-ignored). Copy the Makefile
+Work in `lessons/23-floating-point/linux/work/` (on macOS: `apple-silicon/work/`) (it is git-ignored). Copy the Makefile
 from `examples/` into it, so `make ex3` builds `ex3.s`. If your program calls
 `sqrt` or another `<math.h>` function, add an explicit rule with `-lm`, as in
 `examples/Makefile`.
 
 Try each exercise before you look at the answer. Programs are in
-[solutions/](solutions/) as `exN.s`; written answers are in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/) as `exN.s`; written answers are in
+[answers.md](answers.md).
 
 ## Exercise 23.1 [warm-up]
 

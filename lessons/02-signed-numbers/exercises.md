@@ -4,7 +4,7 @@ Pencil and paper again. Show your working; the working is the point. If you
 keep notes in files, put them in `lessons/02-signed-numbers/work/` (ignored by
 git).
 
-Answers, with working, are in [solutions/README.md](solutions/README.md). Try
+Answers, with working, are in [answers.md](answers.md). Try
 each exercise before you look.
 
 All numbers are 8 bits unless the exercise says otherwise.

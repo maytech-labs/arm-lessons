@@ -66,7 +66,7 @@ size_t my_strlen(const char *s) {
 }
 ```
 
-In assembly, from [`examples/mystrlen.s`](examples/mystrlen.s):
+In assembly, from [`linux/examples/mystrlen.s`](linux/examples/mystrlen.s):
 
 ```asm
 // size_t my_strlen(const char *s)
@@ -168,7 +168,7 @@ strncmp_equal:
     ret
 ```
 
-[`examples/mystrcmp.s`](examples/mystrcmp.s):
+[`linux/examples/mystrcmp.s`](linux/examples/mystrcmp.s):
 
 ```console
 $ ./mystrcmp
@@ -214,7 +214,7 @@ stops. `my_strcat` is "walk to the 0 of `dst`, then do `my_strcpy` from there".
 
 Neither function knows how big `dst` is. **The caller must make sure it is
 big enough**: for `strcpy`, `strlen(src) + 1` bytes; for `strcat`,
-`strlen(dst) + strlen(src) + 1`. In [`examples/mystrcpy.s`](examples/mystrcpy.s)
+`strlen(dst) + strlen(src) + 1`. In [`linux/examples/mystrcpy.s`](linux/examples/mystrcpy.s)
 the destination is a 64-byte buffer in `.bss`, more than enough:
 
 ```asm
@@ -265,7 +265,7 @@ strchr_found:
 
 The result is a pointer *into* the original string. Printing it with `%s`
 prints the rest of the string from that point, and subtracting the start
-address gives the index. [`examples/mystrchr.s`](examples/mystrchr.s)
+address gives the index. [`linux/examples/mystrchr.s`](linux/examples/mystrchr.s)
 searches `"hello world.txt"`:
 
 ```console
@@ -317,7 +317,7 @@ negative, and a negative number viewed as unsigned is huge, so `b.hi` (unsigned
 "higher") catches it too. You will use this "subtract, then one unsigned
 compare" pattern for digits in `atoi` below.
 
-[`examples/case.s`](examples/case.s) converts a string in place (it is in
+[`linux/examples/case.s`](linux/examples/case.s) converts a string in place (it is in
 `.data`, because we change it), then compares `my_toupper`/`my_tolower` with
 libc's `toupper`/`tolower` for every byte value from 0 to 255:
 
@@ -356,7 +356,7 @@ rev_loop:
 Addresses are unsigned, so the comparison uses `b.hs`. For the empty string,
 `j` starts at `s - 1`, which is below `i`, so the loop does nothing. Predict
 what happens for `"a"` (one character), then run
-[`examples/reverse.s`](examples/reverse.s):
+[`linux/examples/reverse.s`](linux/examples/reverse.s):
 
 ```console
 $ ./reverse
@@ -408,7 +408,7 @@ char *my_itoa(long value, char *buf, int base) {
 }
 ```
 
-From [`examples/itoa.s`](examples/itoa.s):
+From [`linux/examples/itoa.s`](linux/examples/itoa.s):
 
 ```asm
 my_itoa:
@@ -499,7 +499,7 @@ int parse_long(const char *s, long *out) {   // 1 = ok, 0 = invalid
 }
 ```
 
-The heart of it in assembly, from [`examples/atoi.s`](examples/atoi.s):
+The heart of it in assembly, from [`linux/examples/atoi.s`](linux/examples/atoi.s):
 
 ```asm
 parse_loop:
@@ -561,7 +561,7 @@ $ ./atoi
 writing into whatever memory comes next. That is a **buffer overflow**, and it
 is the most famous bug in C.
 
-[`examples/overflow.s`](examples/overflow.s) puts two 8-byte arrays next to
+[`linux/examples/overflow.s`](linux/examples/overflow.s) puts two 8-byte arrays next to
 each other in `.data`:
 
 ```asm

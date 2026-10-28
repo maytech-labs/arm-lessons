@@ -19,7 +19,7 @@ container:
 
 ```console
 $ ./scripts/linux-shell.sh
-# cd lessons/05-hello-world/examples && make
+# cd lessons/05-hello-world/linux/examples && make
 ```
 
 ## The program
@@ -320,4 +320,4 @@ before every system call.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/05-hello-world/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

@@ -22,7 +22,7 @@ calling C). Real programs are not one file; this lesson is about how pieces
 are named, placed, and joined.
 
 ```console
-# cd lessons/20-symbols-and-sections/examples && make
+# cd lessons/20-symbols-and-sections/linux/examples && make
 ```
 
 ## Sections, again
@@ -143,7 +143,7 @@ The Makefile builds them together:
 
 ```make
 PARTS := mathlib
-include ../../../mk/linux.mk
+include ../../../../mk/linux.mk
 
 app: app.s mathlib.s
 	$(CC) $(ASFLAGS) -o $@ app.s mathlib.s
@@ -321,5 +321,5 @@ build lookup tables.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/20-symbols-and-sections/README.md)
+[Apple Silicon companion](apple-silicon/README.md)
 next.

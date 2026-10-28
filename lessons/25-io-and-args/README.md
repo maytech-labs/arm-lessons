@@ -34,10 +34,10 @@ You need:
 - [Lesson 19](../19-structs-and-unions/): structs via `.equ` offsets (one exercise).
 - [Lesson 20](../20-symbols-and-sections/): globals and `extern` symbols.
 
-All examples are in [`examples/`](examples/). Build them once:
+All examples are in [`linux/examples/`](linux/examples/). Build them once:
 
 ```console
-$ cd lessons/25-io-and-args/examples
+$ cd lessons/25-io-and-args/linux/examples
 $ make
 ```
 
@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
 }
 ```
 
-The heart of [`examples/args.s`](examples/args.s):
+The heart of [`linux/examples/args.s`](linux/examples/args.s):
 
 ```asm
     mov w19, w0                 // w19 = argc (an int, 32 bits)
@@ -146,7 +146,7 @@ sp + 16    argv[1]             pointer
 When you link with libc, the C library's own `_start` reads this, sets up
 `stdio` and friends, and then calls `main(argc, argv, envp)`. A freestanding
 program (no libc) has to read it itself.
-[`examples/start_args.s`](examples/start_args.s) does exactly that, with only
+[`linux/examples/start_args.s`](linux/examples/start_args.s) does exactly that, with only
 raw system calls, like lessons 04-15:
 
 ```asm
@@ -191,7 +191,7 @@ int main(int argc, char **argv, char **envp) {
 }
 ```
 
-It arrives in `x2`. From [`examples/envp.s`](examples/envp.s):
+It arrives in `x2`. From [`linux/examples/envp.s`](linux/examples/envp.s):
 
 ```asm
     mov x19, x2                 // x19 = p = envp (third argument)
@@ -229,7 +229,7 @@ if (v == NULL) puts("GREETING is not set");
 else printf("GREETING is %s\n", v);
 ```
 
-In [`examples/getenv.s`](examples/getenv.s) that is a call and a `cbz`:
+In [`linux/examples/getenv.s`](linux/examples/getenv.s) that is a call and a `cbz`:
 
 ```asm
     adrp x0, name
@@ -311,7 +311,7 @@ Three steps, two loads. Compare with your own data, where `adrp`/`add` gives the
 address directly. Forget the last `ldr` and you pass `&stdout` (a `FILE **`)
 where a `FILE *` is expected: a crash.
 
-[`examples/streams.s`](examples/streams.s) prints one line to each stream and
+[`linux/examples/streams.s`](linux/examples/streams.s) prints one line to each stream and
 returns 3. Predict what you see in each case:
 
 ```console
@@ -360,7 +360,7 @@ while (fgets(buf, sizeof buf, f) != NULL)
 fclose(f);
 ```
 
-[`examples/stdio_files.s`](examples/stdio_files.s) puts the 128-byte buffer in
+[`linux/examples/stdio_files.s`](linux/examples/stdio_files.s) puts the 128-byte buffer in
 the stack frame (lesson 13), above the saved registers:
 
 ```asm
@@ -434,7 +434,7 @@ if (f == NULL) {
 In assembly there is a catch: `errno` is **not** an ordinary global variable.
 Every thread (lesson 28) needs its own copy, so in glibc the name `errno` is a
 macro for `(*__errno_location())`, a function that returns the address of the
-current thread's `errno`. From [`examples/errno.s`](examples/errno.s):
+current thread's `errno`. From [`linux/examples/errno.s`](linux/examples/errno.s):
 
 ```asm
     bl fopen                    // x0 = FILE *, or NULL on failure
@@ -478,7 +478,7 @@ There are two ways to make these calls from a `main` program:
 - **The raw system call** with `svc #0` (lesson 05). On failure `x0` holds
   `-errno` (for example -2), and `errno` is not touched.
 
-[`examples/syscalls.s`](examples/syscalls.s) prints a file with raw system calls:
+[`linux/examples/syscalls.s`](linux/examples/syscalls.s) prints a file with raw system calls:
 
 ```asm
     mov x0, #AT_FDCWD           // openat(AT_FDCWD, argv[1], O_RDONLY, 0)
@@ -528,7 +528,7 @@ printf("C\n");
 return 0;
 ```
 
-[`examples/buffering.s`](examples/buffering.s):
+[`linux/examples/buffering.s`](linux/examples/buffering.s):
 
 ```console
 $ ./buffering
@@ -589,7 +589,7 @@ cat_stream_loop:
     b cat_stream_loop
 ```
 
-`main` in [`examples/cat.s`](examples/cat.s) calls `cat_stream(stdin)` when
+`main` in [`linux/examples/cat.s`](linux/examples/cat.s) calls `cat_stream(stdin)` when
 `argc == 1`, otherwise opens each `argv[i]`. A file that cannot be opened gets a
 `perror`, sets the status to 1, and the loop *continues* with the next file,
 like the real `cat`. Because it copies bytes, not lines, it also copies binary
@@ -608,7 +608,7 @@ nope.txt: No such file or directory
 
 ### `wc`
 
-[`examples/wc.s`](examples/wc.s) counts bytes, lines (`'\n'` characters), and
+[`linux/examples/wc.s`](linux/examples/wc.s) counts bytes, lines (`'\n'` characters), and
 words (runs of characters that are not space, tab, or newline). The word count
 uses a flag: a word starts when you see a non-space while `inword` is 0.
 
@@ -635,7 +635,7 @@ Compare with the real `wc sample.txt`.
 
 ### `head -n`
 
-[`examples/head.s`](examples/head.s) prints the first N lines (default 10). It
+[`linux/examples/head.s`](linux/examples/head.s) prints the first N lines (default 10). It
 shows the usual shape of option parsing: check `argv[i]` against `"-n"` with
 `strcmp`, convert the next argument with `atoi`, skip both, and treat whatever
 is left as a file name.
@@ -755,4 +755,4 @@ usage: head [-n N] [FILE]
 ## Homework
 
 Do the exercises in [exercises.md](exercises.md), then read the macOS companion
-[../../apple-silicon/25-io-and-args/](../../apple-silicon/25-io-and-args/).
+[apple-silicon/](apple-silicon/).

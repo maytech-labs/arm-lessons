@@ -18,7 +18,7 @@ assembler, object file, and linker pipeline. Work inside the Linux container:
 
 ```console
 $ ./scripts/linux-shell.sh
-# cd lessons/04-first-program/examples
+# cd lessons/04-first-program/linux/examples
 ```
 
 ## The whole program
@@ -330,4 +330,4 @@ you the file and line.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/04-first-program/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

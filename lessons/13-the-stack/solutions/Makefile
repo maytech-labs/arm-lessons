@@ -1,1 +1,0 @@
-include ../../../mk/linux.mk

@@ -1,6 +1,6 @@
 # Lesson 20 exercises
 
-Work in `lessons/20-symbols-and-sections/work/` inside the container:
+Work in `lessons/20-symbols-and-sections/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/20-symbols-and-sections/work/` inside the container:
 
 For multi-file exercises, adjust `PARTS` and add a rule, as in
 `examples/Makefile`. Try each exercise before looking at the answers:
-programs are in [solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+programs are in [linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 20.1 [warm-up]
 

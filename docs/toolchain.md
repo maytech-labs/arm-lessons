@@ -12,7 +12,7 @@
 We almost always let `gcc` or `clang` run the assembler and linker for us,
 because they know where the C library and startup files are.
 
-## Linux track
+## Linux flavor
 
 Inside the container (`./scripts/linux-shell.sh`):
 
@@ -24,7 +24,7 @@ $ objdump -d prog                             # disassemble
 $ gdb ./prog                                  # debug
 ```
 
-## Apple track
+## Apple flavor
 
 On macOS with the Xcode command line tools (`xcode-select --install`):
 

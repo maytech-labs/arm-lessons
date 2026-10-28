@@ -1,6 +1,6 @@
 # Lesson 12 exercises
 
-Work in `lessons/12-arrays-and-pointers/work/` inside the container:
+Work in `lessons/12-arrays-and-pointers/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/12-arrays-and-pointers/work/` inside the container:
 
 Start each program from an example that already has the print block, and
 change the data and the loop. Try each exercise before looking at the
-answers: programs are in [solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+answers: programs are in [linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 12.1 [warm-up]
 

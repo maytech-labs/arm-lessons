@@ -20,7 +20,7 @@ from C), and 18 (type sizes, loads). Some examples are a C file plus an
 assembly file; their Makefiles have explicit rules, as in lesson 16.
 
 ```console
-# cd lessons/19-structs-and-unions/examples && make
+# cd lessons/19-structs-and-unions/linux/examples && make
 ```
 
 ## A struct is memory with named offsets
@@ -315,5 +315,5 @@ with other programs or hardware, use explicit masks and shifts instead.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/19-structs-and-unions/README.md)
+[Apple Silicon companion](apple-silicon/README.md)
 next.

@@ -29,3 +29,6 @@ work/
 
 # Scratch
 .scratch/
+
+# Generated book
+build/

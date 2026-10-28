@@ -32,7 +32,7 @@ container:
 
 ```console
 $ ./scripts/linux-shell.sh
-# cd lessons/24-function-pointers/examples
+# cd lessons/24-function-pointers/linux/examples
 # make
 ```
 
@@ -74,7 +74,7 @@ Two new things in assembly:
 always true for a function in the same `.s` file. `adrp` + `add :lo12:` works too,
 for any distance.
 
-Here is the program. Read [examples/fnptr_basics.s](examples/fnptr_basics.s):
+Here is the program. Read [linux/examples/fnptr_basics.s](linux/examples/fnptr_basics.s):
 
 ```asm
     adr  x19, add_ints              // x19 = op
@@ -188,7 +188,7 @@ for_each_loop:
     b   for_each_loop
 ```
 
-Read the whole file, [examples/callback.s](examples/callback.s). Predict the
+Read the whole file, [linux/examples/callback.s](linux/examples/callback.s). Predict the
 output, then run it:
 
 ```console
@@ -275,7 +275,7 @@ element size (`asr #2` divides by 4).
 The array lives in `.data`, not `.rodata`: `qsort` rearranges it in place, and
 writing to `.rodata` would crash.
 
-Read [examples/qsort_ints.s](examples/qsort_ints.s). Predict all four lines, then
+Read [linux/examples/qsort_ints.s](linux/examples/qsort_ints.s). Predict all four lines, then
 run it:
 
 ```console
@@ -336,7 +336,7 @@ square:
     ret
 ```
 
-Read [examples/map_filter.s](examples/map_filter.s). The program filters 1..10
+Read [linux/examples/map_filter.s](linux/examples/map_filter.s). The program filters 1..10
 for odd numbers, then squares the result. Predict the three lines, then run it:
 
 ```console
@@ -450,7 +450,7 @@ you the real numbers) that the code is laid out like this:
 3. `x10 = table[2] = -24`.
 4. `x10 = calc + 64 - 24 = calc + 40`: `calc_case2`. `mul w0, w1, w2` = 48. `ret`.
 
-Read [examples/jump_table.s](examples/jump_table.s). `main` calls `calc` for
+Read [linux/examples/jump_table.s](linux/examples/jump_table.s). `main` calls `calc` for
 `op` from -1 to 4. Predict all six lines (`12 / 4` with `sdiv`), then run:
 
 ```console
@@ -530,7 +530,7 @@ of thumb:
 
 That is why `names` is in `.data` too, even though we never change it.
 
-Read [examples/dispatch_table.s](examples/dispatch_table.s), predict, run:
+Read [linux/examples/dispatch_table.s](linux/examples/dispatch_table.s), predict, run:
 
 ```console
 # ./dispatch_table
@@ -590,7 +590,7 @@ and calls whatever it finds. In assembly, `s->ops->area(s)` is two loads and a
 Passing the struct to its own function (`s`, or `this` in C++) is how the
 function finds `w` and `h`.
 
-Read [examples/vtable.s](examples/vtable.s). Predict the three lines, then run:
+Read [linux/examples/vtable.s](linux/examples/vtable.s). Predict the three lines, then run:
 
 ```console
 # ./vtable
@@ -674,4 +674,4 @@ does not change. That is the payoff of function pointers.
 ## Homework
 
 Do the exercises in [exercises.md](exercises.md), then read the macOS companion,
-[../../apple-silicon/24-function-pointers/](../../apple-silicon/24-function-pointers/).
+[apple-silicon/](apple-silicon/).

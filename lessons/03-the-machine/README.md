@@ -168,13 +168,13 @@ word, four bytes). Not some of them: every one.
 Let's see that. In the container:
 
 ```console
-$ cd /work/lessons/03-the-machine/examples
+$ cd /work/lessons/03-the-machine/linux/examples
 $ make
 cc -g -nostdlib -static -o bytes bytes.s
 cc -g -nostdlib -static -o encoding encoding.s
 ```
 
-Open [examples/encoding.s](examples/encoding.s). You will learn to write a
+Open [linux/examples/encoding.s](linux/examples/encoding.s). You will learn to write a
 file like this in lesson 04; for now the important part is the eight lines
 between `_start:` and the end. Each one is a single instruction. `mov x0, #42`
 means "put the number 42 into register `x0`" (the `#` marks a number written
@@ -250,7 +250,7 @@ cannot be any 64-bit value; here it gets only 16 bits.
 ### Instructions sit in memory like any other bytes
 
 The program's instructions are in memory, as bytes, right next to (well, near)
-its data. [examples/bytes.s](examples/bytes.s) has three instructions and
+its data. [linux/examples/bytes.s](linux/examples/bytes.s) has three instructions and
 some data. Dump the raw bytes of each part:
 
 ```console

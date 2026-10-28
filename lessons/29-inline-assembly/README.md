@@ -25,7 +25,7 @@ assembly in real programs is written: a handful of lines where C has no way to
 say what you need.
 
 ```console
-# cd lessons/29-inline-assembly/examples && make
+# cd lessons/29-inline-assembly/linux/examples && make
 ```
 
 These examples are built with `-O2`, so you see how `asm` statements interact
@@ -300,5 +300,5 @@ sequence.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/29-inline-assembly/README.md)
+[Apple Silicon companion](apple-silicon/README.md)
 next.

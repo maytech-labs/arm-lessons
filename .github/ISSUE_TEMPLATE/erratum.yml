@@ -1,0 +1,47 @@
+name: Erratum
+description: Something in a lesson is wrong, unclear, or does not work.
+title: "Lesson NN: "
+labels: ["erratum"]
+body:
+  - type: input
+    id: lesson
+    attributes:
+      label: Lesson
+      description: The lesson directory, e.g. 07-arithmetic.
+    validations:
+      required: true
+  - type: dropdown
+    id: flavor
+    attributes:
+      label: Flavor
+      options:
+        - Both / the lesson text
+        - Linux
+        - Apple Silicon
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - A program does not build or behaves differently from its comment
+        - The explanation is wrong
+        - The explanation is confusing
+        - An exercise or answer is wrong
+        - Typo or broken link
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you expected, what you saw, and where (file and section). For programs, paste the commands and output.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: For build or run problems, e.g. "macOS 26 on M3, Xcode 26" or "Docker container on M1".

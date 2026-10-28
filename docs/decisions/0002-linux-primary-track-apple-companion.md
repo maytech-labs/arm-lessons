@@ -1,6 +1,6 @@
 # 0002: Linux AArch64 is the main track; Apple Silicon is a companion track
 
-- **Status:** Accepted
+- **Status:** Accepted; the directory layout is superseded by [0011](0011-lessons-with-flavor-folders.md)
 - **Date:** 2026-10-27
 
 ## Context

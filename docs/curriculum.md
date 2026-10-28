@@ -1,8 +1,8 @@
 # Curriculum
 
-The full syllabus. Each lesson lives in `lessons/NN-slug/` (Linux AArch64) with a
-companion in `apple-silicon/NN-slug/` (macOS arm64). Do them in order: every lesson
-assumes everything before it.
+The full syllabus. Each lesson lives in `lessons/NN-slug/`, with its programs in
+two flavors: `linux/` (Linux AArch64) and `apple-silicon/` (macOS arm64). Do them
+in order: every lesson assumes everything before it.
 
 The goal: by the end you can take any C program that uses the core language and
 the standard library, and write it by hand in AArch64 assembly, and you

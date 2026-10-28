@@ -1,13 +1,13 @@
-# Main track: Linux AArch64
+# Lessons
 
-Do these in order. Each lesson has a `README.md` to read, `examples/` to build
-and run, `exercises.md` for homework, and `solutions/` to check your work.
+Do these in order. Each lesson directory has:
 
-On a Mac, run everything in this track inside the container:
+- `README.md`: the lesson. Read it top to bottom.
+- `exercises.md`: homework. `answers.md`: answers to the written questions.
+- `linux/`: the Linux AArch64 programs (`examples/`, `solutions/`). On a Mac,
+  build and run them inside the container: `./scripts/linux-shell.sh`.
+- `apple-silicon/`: what is different on macOS, and the macOS versions of
+  every program, built and run natively.
 
-```console
-$ ./scripts/linux-shell.sh
-```
-
-Full syllabus: [../docs/curriculum.md](../docs/curriculum.md). After each lesson,
-read its companion in [../apple-silicon/](../apple-silicon/).
+Full syllabus: [../docs/curriculum.md](../docs/curriculum.md). About the macOS
+flavor: [../docs/apple-silicon.md](../docs/apple-silicon.md).

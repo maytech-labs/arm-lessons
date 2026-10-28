@@ -1,12 +1,12 @@
 # Lesson 03 exercises
 
-Work in `lessons/03-the-machine/work/` inside the container (create it and
+Work in `lessons/03-the-machine/linux/work/` (on macOS: `apple-silicon/work/`) inside the container (create it and
 copy `examples/Makefile` into it, as in lesson 00). Build the examples first:
 `make -C ../examples`.
 
 Try each exercise before looking at the answers. Written answers are in
-[solutions/README.md](solutions/README.md); the one program is
-[solutions/ex4.s](solutions/ex4.s).
+[answers.md](answers.md); the one program is
+[linux/solutions/ex4.s](linux/solutions/ex4.s).
 
 ## Exercise 03.1 [warm-up]
 

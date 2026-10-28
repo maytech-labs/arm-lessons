@@ -94,7 +94,7 @@ not an `x` register.
 Predict: in `printf("%d %d %d %d %d %d %d %d %d\n", 1, 2, ..., 9)`, where do 8
 and 9 go?
 
-Look at [examples/callvar.s](examples/callvar.s), then run it:
+Look at [linux/examples/callvar.s](linux/examples/callvar.s), then run it:
 
 ```console
 $ make callvar
@@ -250,7 +250,7 @@ Here is the plan for `sum`'s 112-byte frame:
     sp+112  = sp on entry       (__stack starts here)
 ```
 
-Open [examples/sum.s](examples/sum.s). The steps are exactly the ones above:
+Open [linux/examples/sum.s](linux/examples/sum.s). The steps are exactly the ones above:
 
 1. **Prologue** and **spill** `x1`-`x7` into the save area, with `stp`.
 2. **`va_start`**: store the five fields. `.equ` names (`VA_STACK`,
@@ -280,7 +280,7 @@ Open [examples/sum.s](examples/sum.s). The steps are exactly the ones above:
 
 `sum.s` has no `main`. It is tested from C, so the *compiler* sets up the
 calls and we find out whether our `va_arg` agrees with it. Look at
-[examples/sum_test.c](examples/sum_test.c). The 10-argument call puts seven
+[linux/examples/sum_test.c](linux/examples/sum_test.c). The 10-argument call puts seven
 values in `x1`-`x7` and three on the stack, so it tests both paths.
 
 Predict the output of `sum(4, -5, 100, -20, 1)` before you run it.
@@ -369,7 +369,7 @@ int myprintf(const char *fmt, ...) {
 }
 ```
 
-Open [examples/myprintf.s](examples/myprintf.s). What is new compared with
+Open [linux/examples/myprintf.s](linux/examples/myprintf.s). What is new compared with
 `sum`:
 
 - **`myprintf` calls other functions** (`putchar`), and those clobber `x1`-`x7`.
@@ -399,7 +399,7 @@ Open [examples/myprintf.s](examples/myprintf.s). What is new compared with
 - `next_gr` is a **leaf function** (it calls nothing), so it needs no frame
   and uses only temporaries.
 
-The C driver [examples/myprintf_test.c](examples/myprintf_test.c) prints each
+The C driver [linux/examples/myprintf_test.c](linux/examples/myprintf_test.c) prints each
 line twice, once with `myprintf` and once with the real `printf`, so you can
 compare. Predict: what does `myprintf` return for the first line? Count the
 characters (the `\n` counts, `%%` prints one character).
@@ -422,7 +422,7 @@ sign-extend to 64 bits with `ldrsw` first and negate the 64-bit value, so it
 works.
 
 Calling *your own* variadic function from assembly is no different from
-calling `printf`. [examples/pfdemo.s](examples/pfdemo.s) does it, including a
+calling `printf`. [linux/examples/pfdemo.s](linux/examples/pfdemo.s) does it, including a
 call with nine variadic ints (two on the stack):
 
 ```console
@@ -489,7 +489,7 @@ The frame of `logmsg` is 256 bytes:
     sp+256  = sp on entry       (__stack)
 ```
 
-Read [examples/vforward.s](examples/vforward.s). Notice the order again: all
+Read [linux/examples/vforward.s](linux/examples/vforward.s). Notice the order again: all
 argument registers are saved *before* the `fputs` call, which would destroy
 them. In `main`, the second call passes `"progress"` in `x1`, 37.5 in `d0`, 80
 in `x2` and 2/3 in `d1`: integers and doubles fill their own register files

@@ -1,14 +1,14 @@
 # Lesson 04 exercises
 
-Work in `lessons/04-first-program/work/` inside the container:
+Work in `lessons/04-first-program/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
 ```
 
 `make` builds every `.s` file in the directory. Try each exercise before
-looking at the answers: programs are in [solutions/](solutions/), written
-answers in [solutions/README.md](solutions/README.md).
+looking at the answers: programs are in [linux/solutions/](linux/solutions/), written
+answers in [answers.md](answers.md).
 
 ## Exercise 04.1 [warm-up]
 

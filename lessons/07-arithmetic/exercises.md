@@ -1,6 +1,6 @@
 # Lesson 07 exercises
 
-Work in `lessons/07-arithmetic/work/` inside the container:
+Work in `lessons/07-arithmetic/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/07-arithmetic/work/` inside the container:
 
 Results come back as the exit status (0-255). When a value does not fit,
 check it in the debugger instead. Try each exercise before looking at the
-answers: programs are in [solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+answers: programs are in [linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 07.1 [warm-up]
 

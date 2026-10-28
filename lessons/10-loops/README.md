@@ -18,7 +18,7 @@ You need lesson 09: `cmp`, `b.cond`, `cbz`, and the "invert the condition and
 skip" pattern. A loop is just an `if` that jumps backwards.
 
 ```console
-# cd lessons/10-loops/examples && make
+# cd lessons/10-loops/linux/examples && make
 ```
 
 ## `while`: test at the top
@@ -358,4 +358,4 @@ faster; that is lesson 24.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/10-loops/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

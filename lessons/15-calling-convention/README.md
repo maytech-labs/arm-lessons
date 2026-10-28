@@ -20,7 +20,7 @@ lesson 14 we followed a loose rule ("functions may change `x0`-`x18`; keep
 long-lived values in `x19`+"). This lesson makes that precise.
 
 ```console
-# cd lessons/15-calling-convention/examples && make
+# cd lessons/15-calling-convention/linux/examples && make
 ```
 
 ## Why a convention?
@@ -342,5 +342,5 @@ When **writing** a function:
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/15-calling-convention/README.md)
+[Apple Silicon companion](apple-silicon/README.md)
 next.

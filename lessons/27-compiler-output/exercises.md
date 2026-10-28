@@ -1,6 +1,6 @@
 # Lesson 27 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p lessons/27-compiler-output/work
@@ -12,8 +12,8 @@ the programming exercises, write the C first (`exN.c`), translate it by hand
 with the recipe from the lesson, *then* compare with `gcc -O2 -S -o - exN.c`.
 
 Try each exercise properly before you look at the solution. Solutions are in
-[solutions/](solutions/); written answers are in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/); written answers are in
+[answers.md](answers.md).
 
 ## Exercise 27.1 [warm-up]
 

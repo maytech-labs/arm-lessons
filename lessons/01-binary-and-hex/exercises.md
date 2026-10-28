@@ -5,7 +5,7 @@ working, before checking with the shell commands from the lesson's
 "Checking your work" section. If you want to keep your working in files, put
 them in `lessons/01-binary-and-hex/work/` (ignored by git).
 
-Answers, with working, are in [solutions/README.md](solutions/README.md). Try
+Answers, with working, are in [answers.md](answers.md). Try
 each exercise before you look.
 
 ## Exercise 01.1 [warm-up]

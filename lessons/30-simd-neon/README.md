@@ -24,7 +24,7 @@ teaches the model and the core of them, enough to read vectorised compiler
 output and write simple vector loops.
 
 ```console
-# cd lessons/30-simd-neon/examples && make
+# cd lessons/30-simd-neon/linux/examples && make
 ```
 
 ## The idea
@@ -294,4 +294,4 @@ compiler cannot vectorise, C programmers use **intrinsics** from `<arm_neon.h>`
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/30-simd-neon/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

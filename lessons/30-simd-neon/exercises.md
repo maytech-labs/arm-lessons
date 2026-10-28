@@ -1,6 +1,6 @@
 # Lesson 30 exercises
 
-Work in `lessons/30-simd-neon/work/` inside the container:
+Work in `lessons/30-simd-neon/linux/work/` (on macOS: `apple-silicon/work/`) inside the container:
 
 ```console
 # mkdir -p work && cd work && cp ../examples/Makefile .
@@ -8,8 +8,8 @@ Work in `lessons/30-simd-neon/work/` inside the container:
 
 Use gdb's `p $v0` (or `p $v0.s`, `p $v0.b`) to look at vector registers while
 you debug. Try each exercise before looking at the answers: programs are in
-[solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md).
+[linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md).
 
 ## Exercise 30.1 [warm-up]
 

@@ -19,7 +19,7 @@ permissions `gdb` needs):
 
 ```console
 $ ./scripts/linux-shell.sh
-# cd lessons/06-debugger/examples && make
+# cd lessons/06-debugger/linux/examples && make
 ```
 
 ## Why a debugger, and why now
@@ -340,5 +340,5 @@ There is no C in this lesson, but here is how debugging C and assembly compare:
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/06-debugger/README.md) next: it
+[Apple Silicon companion](apple-silicon/README.md) next: it
 teaches the same things in `lldb`.

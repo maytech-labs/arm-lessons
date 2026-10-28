@@ -7,7 +7,7 @@ x16, svc #0 -> svc #0x80, :lo12: -> @PAGEOFF, adrp sym -> sym@PAGE,
 Always review the result: comments that mention Linux, gdb, etc. are not
 rewritten.
 
-Usage: scripts/port-to-apple.py lessons/NN-x/examples/foo.s apple-silicon/NN-x/examples/foo.s
+Usage: scripts/port-to-apple.py lessons/NN-x/linux/examples/foo.s lessons/NN-x/apple-silicon/examples/foo.s
 """
 import re
 import sys

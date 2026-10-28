@@ -20,7 +20,7 @@ the mechanics of calling. Lesson 15 adds the complete rules (the *calling
 convention*) for which registers a function may change.
 
 ```console
-# cd lessons/14-functions/examples && make
+# cd lessons/14-functions/linux/examples && make
 ```
 
 ## The problem functions solve
@@ -375,4 +375,4 @@ block inline.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/14-functions/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

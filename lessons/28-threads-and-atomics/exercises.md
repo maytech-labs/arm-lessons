@@ -1,6 +1,6 @@
 # Lesson 28 exercises
 
-Work in a `work/` directory inside this lesson (it is git-ignored):
+Work in a `work/` directory inside this lesson's `linux/` folder (on macOS: `apple-silicon/`) (it is git-ignored):
 
 ```console
 $ mkdir -p lessons/28-threads-and-atomics/work
@@ -9,8 +9,8 @@ $ cp ../examples/Makefile .     # links every .s with -pthread
 ```
 
 (Delete the `c11` lines from the copied Makefile, or copy `c11.c` too.)
-Solutions are in [solutions/](solutions/), written answers in
-[solutions/README.md](solutions/README.md). Try each exercise properly before
+Solutions are in [linux/solutions/](linux/solutions/), written answers in
+[answers.md](answers.md). Try each exercise properly before
 you look. Run every threaded program several times: a bug that shows up one
 run in ten is still a bug.
 

@@ -24,25 +24,27 @@ example themselves.
 
 ```
 lessons/NN-slug/
-  README.md        the lesson itself
-  exercises.md     homework
-  examples/        every program the README uses, plus a Makefile
-  solutions/       one solution per programming exercise, plus a Makefile,
-                   and README.md for written (non-code) answers
-apple-silicon/NN-slug/
-  README.md        what is different on macOS for this lesson, and walkthroughs
-                   of the macOS versions of the examples
-  examples/        macOS versions of every example, plus a Makefile
-  solutions/       macOS versions of every programming solution, plus a Makefile
+  README.md          the lesson itself (prose; its code samples are the Linux flavor)
+  exercises.md       homework, shared by every flavor
+  answers.md         answers to the written (non-code) exercises
+  linux/
+    examples/        every program the README uses, plus a Makefile
+    solutions/       one solution per programming exercise, plus a Makefile
+  apple-silicon/
+    README.md        what is different on macOS for this lesson, and walkthroughs
+                     of the macOS versions of the examples
+    examples/        macOS versions of every example, plus a Makefile
+    solutions/       macOS versions of every programming solution, plus a Makefile
 ```
 
-Theory-only lessons (01, 02) have no `examples/` if there is nothing to run, and
-their apple-silicon README just says nothing differs.
+Theory-only lessons (01, 02) have no `linux/` or code folders, and their
+`apple-silicon/README.md` just says nothing differs. A new flavor (another OS
+on AArch64) would be one more folder beside `linux/` and `apple-silicon/`.
 
 Makefiles are two lines:
 
 ```make
-include ../../../mk/linux.mk   # or ../../../mk/apple.mk
+include ../../../../mk/linux.mk   # or ../../../../mk/apple.mk
 ```
 
 Programs that need more than one source file (lessons 16, 20 onward) write their
@@ -95,10 +97,10 @@ $ echo $?
   and run it, and the expected output or exit code.
 - Use `.p2align` (explicit power of two) rather than `.align`.
 - Never use `x18` (reserved on Apple platforms; avoid everywhere for portability).
-- Linux track: freestanding programs use `_start` (lessons 04-15); from lesson 16
+- Linux flavor: freestanding programs use `_start` (lessons 04-15); from lesson 16
   on, programs define `main` and link libc. Load addresses with
   `adrp x0, sym` / `add x0, x0, :lo12:sym`.
-- Apple track: every program defines `_main`; symbols are prefixed with `_`;
+- Apple flavor: every program defines `_main`; symbols are prefixed with `_`;
   addresses via `adrp x0, sym@PAGE` / `add x0, x0, sym@PAGEOFF`. See
   [platform-differences.md](platform-differences.md).
 - Keep `sp` 16-byte aligned at all times.

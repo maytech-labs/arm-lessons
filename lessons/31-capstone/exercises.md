@@ -27,7 +27,7 @@ How to work:
   status of each test.
 - Solutions are in `solutions/PROJECT/PROJECT.s`. Try first: you learn far more
   from a bug you find yourself than from a solution you read. Notes on the
-  design of each solution are in [solutions/README.md](solutions/README.md).
+  design of each solution are in [answers.md](answers.md).
 
 ---
 

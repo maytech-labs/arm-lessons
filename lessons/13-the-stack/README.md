@@ -19,7 +19,7 @@ You need lesson 11 (loads, stores, pre/post-index, `ldp`/`stp`) and lesson 12
 the stack, so we learn it first, on its own.
 
 ```console
-# cd lessons/13-the-stack/examples && make
+# cd lessons/13-the-stack/linux/examples && make
 ```
 
 ## Why a stack?
@@ -290,4 +290,4 @@ shows how many pushes succeeded.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/13-the-stack/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

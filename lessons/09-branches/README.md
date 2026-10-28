@@ -18,7 +18,7 @@ tests). Every program so far ran straight from top to bottom. This lesson is
 about making decisions.
 
 ```console
-# cd lessons/09-branches/examples && make
+# cd lessons/09-branches/linux/examples && make
 ```
 
 ## Jumping: `b`
@@ -337,4 +337,4 @@ name them after what they do: `end_if_positive`, `try_lower`, `skip_odd`.
 ## Homework
 
 [exercises.md](exercises.md). On a Mac, read the
-[Apple Silicon companion](../../apple-silicon/09-branches/README.md) next.
+[Apple Silicon companion](apple-silicon/README.md) next.

@@ -55,8 +55,8 @@ compares its output, its error messages and its exit status with the expected
 ones. When a test fails it shows the difference: lines starting with `<` are
 what was expected, `>` is what your program printed.
 
-The solutions are in `solutions/wc/`, `solutions/rpn/`, and so on. Running
-`make` in `solutions/` builds all five, and `./tests/check.sh all solutions`
+The solutions are in `linux/solutions/wc/`, `linux/solutions/rpn/`, and so on. Running
+`make` in `linux/solutions/` builds all five, and `./tests/check.sh all linux/solutions`
 tests all five. Try each project yourself before you look.
 
 ## A method for big programs

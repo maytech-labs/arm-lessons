@@ -71,7 +71,7 @@ single instruction. It feels slow. It saves hours of debugging.
 
 ### A worked example
 
-Here is the C. Open [examples/triangles.c](examples/triangles.c):
+Here is the C. Open [linux/examples/triangles.c](linux/examples/triangles.c):
 
 ```c
 long print_triangles(int n) {
@@ -143,7 +143,7 @@ sp+0   x29   <- sp and x29 after the prologue
 ```
 
 **Step 6, statement by statement.** The whole result is in
-[examples/triangles.s](examples/triangles.s). The body:
+[linux/examples/triangles.s](linux/examples/triangles.s). The body:
 
 ```asm
     mov w19, w0                 // n = argument
@@ -177,7 +177,7 @@ instruction, and the compiler uses it all the time, so get used to reading it.
 Build and run both versions:
 
 ```console
-$ cd lessons/27-compiler-output/examples
+$ cd lessons/27-compiler-output/linux/examples
 $ make
 $ ./triangles
 T(1) = 1
@@ -219,7 +219,7 @@ $ gcc -O2 -S -o - funcs.c | grep -v '\.cfi'
 
 Pipe it through `less` if it scrolls off the screen.
 
-Open [examples/funcs.c](examples/funcs.c). It is a set of tiny functions, each
+Open [linux/examples/funcs.c](linux/examples/funcs.c). It is a set of tiny functions, each
 chosen to show one idea. It has no `main`; it is never run, only compiled.
 
 ### What the noise means
@@ -853,7 +853,7 @@ read a real program, find `main` first and work outwards from there.
 ## Part 7: crude timing
 
 Is hand-written assembly faster than the compiler? Measure, do not guess.
-[examples/bench.s](examples/bench.s) contains a hand-written leaf function:
+[linux/examples/bench.s](linux/examples/bench.s) contains a hand-written leaf function:
 
 ```asm
 // long sum_squares_asm(const int *a, long n)
@@ -874,7 +874,7 @@ sum_squares_asm:
 (`1:` and `2:` are *numeric local labels*: `1b` means "the
 nearest `1:` backwards", `2f` "the nearest `2:` forwards".)
 
-[examples/bench_main.c](examples/bench_main.c) has the same loop in C, fills a
+[linux/examples/bench_main.c](linux/examples/bench_main.c) has the same loop in C, fills a
 million-element array, and times 200 calls of each version with `clock()`,
 which returns the CPU time used so far, in units of `CLOCKS_PER_SEC` per
 second. Two details matter in any benchmark like this:

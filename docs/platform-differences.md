@@ -61,11 +61,11 @@ each `apple-silicon/NN-*` lesson explains the parts relevant to that lesson.
   `.hword`, `.word`, `.quad`, `.p2align`, `.equ`, `.macro`.
 - Little-endian byte order.
 
-## Running the Linux track on a Mac
+## Running the Linux flavor on a Mac
 
 Apple Silicon runs arm64 Linux containers natively, with no emulation:
 
 ```console
 $ ./scripts/linux-shell.sh
-root@...:/work# cd lessons/04-first-program/examples && make
+root@...:/work# cd lessons/04-first-program/linux/examples && make
 ```

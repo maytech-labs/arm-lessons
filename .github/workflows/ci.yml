@@ -1,0 +1,101 @@
+# Build and run every program on both flavors, compare them, check the docs,
+# and publish the book to GitHub Pages from main. See docs/decisions/0013.
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    name: Linux AArch64
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the course container
+        run: docker build -t arm-lessons .
+      - name: Build, run, and test every Linux program
+        run: |
+          docker run --rm -v "$PWD":/work -w /work arm-lessons bash -c '
+            set -e
+            ./scripts/build-all.sh linux
+            ./scripts/run-all.sh linux > run-linux.txt
+            make -s -C lessons/31-capstone/linux/solutions
+            lessons/31-capstone/tests/check.sh all lessons/31-capstone/linux/solutions
+          '
+      - uses: actions/upload-artifact@v4
+        with:
+          name: run-linux
+          path: run-linux.txt
+
+  macos:
+    name: Apple Silicon
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build every macOS program
+        run: ./scripts/build-all.sh apple
+      - name: Run every macOS program
+        run: ./scripts/run-all.sh apple > run-apple.txt
+      - name: Capstone tests
+        run: |
+          make -s -C lessons/31-capstone/apple-silicon/solutions
+          lessons/31-capstone/tests/check.sh all lessons/31-capstone/apple-silicon/solutions
+      - uses: actions/upload-artifact@v4
+        with:
+          name: run-apple
+          path: run-apple.txt
+
+  compare:
+    name: Linux and macOS agree
+    needs: [linux, macos]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - run: ./scripts/diff-runs.sh run-linux.txt run-apple.txt
+
+  docs:
+    name: Links and book
+    runs-on: ubuntu-latest
+    env:
+      MDBOOK_VERSION: 0.4.40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        run: python3 scripts/check-links.py
+      - name: Install mdBook
+        run: |
+          curl -sSL "https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar -xz -C /usr/local/bin
+      - name: Build the book
+        run: python3 scripts/build-book.py --build
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          path: build/book/html
+
+  deploy:
+    name: Publish to GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [docs, compare]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
