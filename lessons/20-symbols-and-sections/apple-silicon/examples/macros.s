@@ -33,43 +33,19 @@ _main:
     PROLOGUE
     stp x19, x20, [sp, #-16]!
     LOAD_ADDR x0, head
-    sub sp, sp, #64             // macOS: variadic arguments go on the stack
-    str x1, [sp, #0]
-    str x2, [sp, #8]
-    str x3, [sp, #16]
-    str x4, [sp, #24]
-    str x5, [sp, #32]
-    str x6, [sp, #40]
-    str x7, [sp, #48]
     bl _printf
-    add sp, sp, #64
     LOAD_ADDR x19, squares
     mov x20, #N
 1:  ldr x1, [x19], #8
     LOAD_ADDR x0, item
-    sub sp, sp, #64             // macOS: variadic arguments go on the stack
+    sub sp, sp, #16             // macOS: variadic arguments go on the stack
     str x1, [sp, #0]
-    str x2, [sp, #8]
-    str x3, [sp, #16]
-    str x4, [sp, #24]
-    str x5, [sp, #32]
-    str x6, [sp, #40]
-    str x7, [sp, #48]
     bl _printf
-    add sp, sp, #64
+    add sp, sp, #16
     subs x20, x20, #1
     b.ne 1b
     LOAD_ADDR x0, nl
-    sub sp, sp, #64             // macOS: variadic arguments go on the stack
-    str x1, [sp, #0]
-    str x2, [sp, #8]
-    str x3, [sp, #16]
-    str x4, [sp, #24]
-    str x5, [sp, #32]
-    str x6, [sp, #40]
-    str x7, [sp, #48]
     bl _printf
-    add sp, sp, #64
     ldp x19, x20, [sp], #16
     mov w0, #0
     EPILOGUE

@@ -83,16 +83,12 @@ show:
     mov     w1, w19                 // %d
     mov     x3, #2026               // printf's own conversion (if used)
     mov     x0, x20
-    sub     sp, sp, #64         // macOS: variadic arguments go on the stack
+    sub     sp, sp, #32         // macOS: variadic arguments go on the stack
     str     x1, [sp, #0]
     str     x2, [sp, #8]
     str     x3, [sp, #16]
-    str     x4, [sp, #24]
-    str     x5, [sp, #32]
-    str     x6, [sp, #40]
-    str     x7, [sp, #48]
     bl      _printf
-    add     sp, sp, #64
+    add     sp, sp, #32
     ldp     x19, x20, [sp, #16]
     ldp     x29, x30, [sp], #32
     ret

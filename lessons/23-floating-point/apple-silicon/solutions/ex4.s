@@ -24,9 +24,10 @@ loop:
     cmp x20, #4
     b.ge done
     ldr d0, [x19, x20, lsl #3]  // xs[i]
-    str d0, [sp]                // 1st variadic: x
     bl poly                     // d0 = p(xs[i])
     str d0, [sp, #8]            // 2nd variadic: p(x)
+    ldr d0, [x19, x20, lsl #3]
+    str d0, [sp]                // 1st variadic: x
     adrp x0, fmt@PAGE
     add x0, x0, fmt@PAGEOFF
     bl _printf

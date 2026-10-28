@@ -72,7 +72,7 @@ def main(src, dst):
         new = re.sub(r'\b(adrp\s+\w+,\s*)([A-Za-z_][\w.]*)(?!@)\b', r'\1\2@PAGE', new)
         new = re.sub(r':lo12:([A-Za-z_][\w.]*)', r'\1@PAGEOFF', new)
         new = new.replace('.section .rodata', '.section __TEXT,__const')
-        m = re.match(r'^\s*adrp\s+x(\d+),\s*(\w+)', code)
+        m = re.match(r'^(?:\s*\w+:)?\s*adrp\s+x(\d+),\s*(\w+)', code)
         if m:
             last_adrp[int(m.group(1))] = m.group(2)
         m = re.match(r'^(\s*)bl\s+(\w+)', code)
