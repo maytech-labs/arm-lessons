@@ -1,0 +1,31 @@
+# Build output. Lesson programs have no extension, so ignore everything in
+# examples/ and solutions/ (at any depth) except directories, files with an
+# extension (sources, notes, data), and Makefiles.
+lessons/**/examples/**
+lessons/**/solutions/**
+apple-silicon/**/examples/**
+apple-silicon/**/solutions/**
+!lessons/**/examples/**/
+!lessons/**/solutions/**/
+!apple-silicon/**/examples/**/
+!apple-silicon/**/solutions/**/
+!**/*.*
+!**/Makefile
+*.o
+*.dSYM/
+a.out
+core
+core.*
+
+# Your own homework. Do it in a work/ directory inside any lesson.
+work/
+
+# Editors and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# Scratch
+.scratch/

@@ -1,0 +1,22 @@
+14
+14
+error: division by zero
+error: stack underflow
+error: 2 values left on stack
+4
+1
+1
+-3
+-1
+30
+42
+100
+error: division by zero
+error: stack underflow
+error: stack underflow
+error: unknown token 'x'
+55
+error: stack overflow
+-1000000000000000
+error: stack underflow
+error: 3 values left on stack

@@ -1,0 +1,6 @@
+# name | arguments | stdin | expected exit status
+top10||input.txt|0
+top3|3|input.txt|0
+all|1000|input.txt|0
+short|5|!printf 'b a c b a b\n'|0
+empty||-|0

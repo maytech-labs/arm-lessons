@@ -1,0 +1,10 @@
+# name | arguments | stdin | expected exit status
+hello|hello.bf|-|0
+rev|rev.bf|!printf 'abc'|0
+cat|cat.bf|poem.txt|0
+wrap|wrap.bf|-|0
+unmatched-open|unmatched.bf|-|1
+unmatched-close|unmatched2.bf|-|1
+range|range.bf|-|1
+missing|missing.bf|-|1
+usage||-|2

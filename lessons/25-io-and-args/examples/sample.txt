@@ -1,0 +1,12 @@
+The quick brown fox
+jumps over the lazy dog.
+
+Assembly is just C
+with the lid off.
+one
+two
+three
+four
+five
+six
+seven

@@ -1,0 +1,19 @@
+// ex7.s - Exercise 08.7: reverse the bytes of a 32-bit value (macOS).
+//
+// C:      unsigned x = 0x11223344;
+//         unsigned y = __builtin_bswap32(x);   // 0x44332211
+//         return y & 0xff;                     // 0x11
+// Build:  make
+// Run:    ./ex7; echo $?
+// Expect: exit status 17 (0x11, now the lowest byte). In lldb, x0 = 0x44332211.
+
+    .global _main               // make _main visible to the linker
+    .text                       // code section
+    .p2align 2                  // align instructions to 4 bytes
+
+_main:
+    movz w1, #0x3344            // w1 = 0x00003344
+    movk w1, #0x1122, lsl #16   // w1 = 0x11223344
+    rev w0, w1                  // reverse the 4 bytes of the w register: 0x44332211
+    mov x16, #1                 // 1 = exit
+    svc #0x80                   // exit: low byte is 0x11 = 17

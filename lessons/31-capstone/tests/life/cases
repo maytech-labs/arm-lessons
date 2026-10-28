@@ -1,0 +1,8 @@
+# name | arguments | stdin | expected exit status
+blinker|blinker.txt 2|-|0
+glider|glider.txt 4|-|0
+glider-wrap|glider.txt 32|-|0
+ragged|ragged.txt 1|-|0
+animate|-a blinker.txt 1|-|0
+usage|blinker.txt|-|2
+missing|missing.txt 3|-|1

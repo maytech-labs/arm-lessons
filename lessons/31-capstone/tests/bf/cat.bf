@@ -1,0 +1,2 @@
+Copy input to output
+,[.,]

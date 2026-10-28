@@ -1,0 +1,13 @@
+# name | arguments | stdin | expected exit status
+# stdin: a file in this directory, "-" for empty input, or "!command" whose output is fed in.
+stdin-all||hello.txt|0
+stdin-lines|-l|poem.txt|0
+stdin-big||!awk 'BEGIN { for (i = 0; i < 20000; i++) print "line", i, "of the big wc test" }'|0
+one-file|poem.txt|-|0
+words-bytes|-w -c spaces.txt|-|0
+combined|-lw poem.txt|-|0
+order|-c -l hello.txt|-|0
+empty|empty.txt|-|0
+total|hello.txt poem.txt spaces.txt|-|0
+missing|hello.txt missing.txt poem.txt|-|1
+bad-option|-x hello.txt|-|2

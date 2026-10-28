@@ -1,0 +1,3 @@
+# name | arguments | stdin | expected exit status
+all-lines||input.txt|0
+empty-input||-|0
