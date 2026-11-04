@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # Open a shell in the Linux AArch64 container with this repo mounted at /work.
 # Builds the image on first use.
 set -euo pipefail

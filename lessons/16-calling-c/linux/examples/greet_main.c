@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // greet_main.c - calls greet() from greet.s.
 // Build: make greet
 

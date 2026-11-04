@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // fact.c - Exercise 16.10: read the compiler's version of a recursive function.
 //     gcc -S -O0 -fno-asynchronous-unwind-tables -o - fact.c
 //     gcc -S -O2 -fno-asynchronous-unwind-tables -o - fact.c

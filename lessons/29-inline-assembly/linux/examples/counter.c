@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // counter.c - read a system register: the virtual timer, at user level.
 //
 // cntvct_el0 counts at a fixed frequency (cntfrq_el0 ticks per second). There

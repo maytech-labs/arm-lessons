@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex6.c - Exercise 29.6: an atomic increment written with inline asm,
 // hammered by four threads.
 //

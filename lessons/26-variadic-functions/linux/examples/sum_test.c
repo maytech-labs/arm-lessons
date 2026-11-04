@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // sum_test.c - C test driver for sum.s. The compiler sets up each call,
 // so this checks that our hand-written va_arg agrees with the real ABI.
 //

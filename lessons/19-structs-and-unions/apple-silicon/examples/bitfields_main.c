@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // bitfields_main.c - sets bit fields in C, reads and writes one from assembly.
 #include <stdio.h>
 #include <string.h>

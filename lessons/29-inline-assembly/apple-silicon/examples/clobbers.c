@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // clobbers.c - telling the compiler what else the asm changes.
 //
 //   "cc"      the condition flags

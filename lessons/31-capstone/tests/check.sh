@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # check.sh - run the capstone tests (lesson 31)
 #
 #   ./tests/check.sh PROJECT BINARY   test one program, e.g.

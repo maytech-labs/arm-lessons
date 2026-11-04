@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex2.c - Exercise 29.2: the high 64 bits of a product, with inline asm,
 // checked against unsigned __int128.
 //

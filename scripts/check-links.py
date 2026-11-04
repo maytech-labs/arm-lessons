@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 """Check that every relative link in the repo's markdown files points to a file
 or directory that exists. Exits non-zero if any link is broken.
 

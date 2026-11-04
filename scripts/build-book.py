@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 """Generate the mdBook source for the course website, then (optionally) build it.
 
 The lessons stay where they are; this script copies the markdown into

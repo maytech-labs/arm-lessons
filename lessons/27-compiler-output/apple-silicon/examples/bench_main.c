@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // bench_main.c - times sum_squares_asm (bench.s) against the same loop in C.
 //
 // Build: make            (clang -O2, linked with bench.s)

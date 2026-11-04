@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // square.c - a tiny C file for reading compiler output. It is not built by make.
 //
 // See the assembly gcc writes for it:
