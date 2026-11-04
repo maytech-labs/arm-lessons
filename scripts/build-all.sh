@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # Build every examples/ and solutions/ directory of one flavor.
 #
 #   ./scripts/build-all.sh linux   # inside the container (scripts/linux-shell.sh)

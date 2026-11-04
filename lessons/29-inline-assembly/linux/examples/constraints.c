@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // constraints.c - read-write operands, immediates, w registers, early clobber.
 //
 // Build:  make

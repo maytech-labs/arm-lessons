@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // c11.c - C11 atomics, to compare with the instructions the compiler picks.
 //
 // Build: make c11            (compiled with -O2)

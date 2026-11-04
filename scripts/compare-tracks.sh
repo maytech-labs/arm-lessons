@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # Build and run every program of one lesson in both flavors, then diff the
 # results (exit status + first bytes of output). Run on macOS, from anywhere.
 #

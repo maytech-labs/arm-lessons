@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex7_main.c - Exercise 16.7: calls sum_array() from ex7.s.
 #include <stdio.h>
 

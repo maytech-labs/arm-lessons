@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # Compare two run-all.sh outputs, ignoring programs listed in
 # known-differences.txt. Exits non-zero if anything else differs.
 #

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex5.c - Exercise 29.5: the fixed version of a broken asm statement.
 //
 // The broken version (in the exercise) computes  r = a * 3 + b  as

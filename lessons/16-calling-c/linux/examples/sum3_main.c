@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // sum3_main.c - C code that calls the assembly function in sum3.s.
 // Build: make sum3
 

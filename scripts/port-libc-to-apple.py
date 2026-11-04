@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 """Port a libc-using (lesson 16+) Linux-track .s file to the Apple track.
 
 - main and C library functions get the Mach-O underscore (_main, _printf, ...)

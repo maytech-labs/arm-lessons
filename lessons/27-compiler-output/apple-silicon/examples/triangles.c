@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // triangles.c - the C original of triangles.s.
 //
 // Prints the first 5 triangle numbers and their sum.

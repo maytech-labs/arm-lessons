@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex3.c - Exercise 29.3: rbit and rev with inline asm, checked against
 // __builtin_bswap64 and a C loop.
 //

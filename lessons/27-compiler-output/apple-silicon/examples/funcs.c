@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // funcs.c - small C functions to feed to the compiler.
 //
 // This file has no main: it is not a program. Look at what the compiler

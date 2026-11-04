@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // ex9_main.c - Exercise 16.9: calls print_table() from ex9.s.
 void print_table(const char *title, const int *values, int n);
 

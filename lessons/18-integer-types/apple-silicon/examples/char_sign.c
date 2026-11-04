@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // char_sign.c - is plain char signed or unsigned on this platform?
 // (A C program, because the answer is a property of the C ABI, not the CPU.)
 //

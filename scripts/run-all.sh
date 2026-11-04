@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 # Run every built program of one flavor and print one line per program:
 #
 #   NN-slug/examples/prog rc=STATUS | first 160 bytes of stdout (newlines as ~)

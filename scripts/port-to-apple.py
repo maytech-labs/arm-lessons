@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: LicenseRef-REAL-1.0
 """Mechanically port a freestanding (lessons 04-15) Linux-track .s file to the
 Apple track: _start -> _main, Linux syscall numbers in x8 -> BSD numbers in
 x16, svc #0 -> svc #0x80, :lo12: -> @PAGEOFF, adrp sym -> sym@PAGE,

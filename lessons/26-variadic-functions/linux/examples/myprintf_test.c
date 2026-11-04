@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // myprintf_test.c - C test driver for myprintf.s. Each line is printed once
 // by myprintf and once by the real printf, so you can compare them.
 //

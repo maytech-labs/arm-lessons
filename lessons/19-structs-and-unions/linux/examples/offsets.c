@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // offsets.c - what the C compiler decides about struct layout.
 // The assembly examples use .equ offsets; this program prints the real ones
 // so you can check them.

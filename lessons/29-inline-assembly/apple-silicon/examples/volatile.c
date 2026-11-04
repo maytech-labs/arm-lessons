@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: LicenseRef-REAL-1.0
 // volatile.c - without volatile, an asm with an unused result may be deleted.
 //
 // Build:  make            (built with -O2, so the optimiser is active)
